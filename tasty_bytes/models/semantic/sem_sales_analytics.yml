@@ -1,0 +1,238 @@
+name: SEM_SALES_ANALYTICS
+description: >
+  Tasty Bytes food truck sales analytics. All revenue, profit, and order metrics
+  come from the daily_sales table pre-aggregated by day, truck, and location.
+  Data covers 2019-01-01 to 2022-11-01. All monetary values are in USD.
+
+tables:
+  - name: daily_sales
+    description: >
+      Pre-aggregated daily sales by truck and location.
+      Use this table for ALL revenue, profit, order count, and trend questions.
+    base_table:
+      database: LARSR_DB
+      schema: PROD
+      table: FCT_DAILY_SALES
+    primary_key:
+      columns:
+        - ORDER_DATE
+        - TRUCK_ID
+        - LOCATION_ID
+    time_dimensions:
+      - name: order_date
+        synonyms: [date, sale date, day]
+        description: Date of sales activity. Data spans 2019-01-01 to 2022-11-01.
+        expr: ORDER_DATE
+        data_type: DATE
+    dimensions:
+      - name: truck_id
+        description: Foreign key to truck dimension.
+        expr: TRUCK_ID
+        data_type: NUMBER
+      - name: location_id
+        description: Foreign key to location dimension.
+        expr: LOCATION_ID
+        data_type: NUMBER
+    metrics:
+      - name: total_revenue
+        synonyms: [total sales, gross revenue, revenue, sales]
+        description: Total revenue in USD. Primary revenue metric.
+        expr: SUM(TOTAL_REVENUE)
+      - name: total_cogs
+        synonyms: [cost of goods sold, cogs, cost]
+        description: Total cost of goods sold in USD.
+        expr: SUM(TOTAL_COGS)
+      - name: total_gross_profit
+        synonyms: [gross profit, profit, margin dollars]
+        description: Total gross profit in USD (revenue minus COGS).
+        expr: SUM(TOTAL_GROSS_PROFIT)
+      - name: total_orders
+        synonyms: [number of orders, order count, orders]
+        description: Total number of distinct orders.
+        expr: SUM(ORDER_COUNT)
+      - name: total_items_sold
+        synonyms: [quantity sold, units sold, items sold]
+        description: Total quantity of menu items sold.
+        expr: SUM(ITEMS_SOLD)
+      - name: total_unique_customers
+        synonyms: [customer count, unique customers]
+        description: Count of distinct customers. Excludes anonymous orders.
+        expr: SUM(UNIQUE_CUSTOMERS)
+      - name: average_order_value
+        synonyms: [aov, avg order value, average order value]
+        description: Average order value in USD.
+        expr: AVG(AVG_ORDER_VALUE)
+
+  - name: trucks
+    description: Food truck dimension with make, model, franchise info.
+    base_table:
+      database: LARSR_DB
+      schema: PROD
+      table: DIM_TRUCK
+    primary_key:
+      columns: [TRUCK_ID]
+    dimensions:
+      - name: truck_id
+        expr: TRUCK_ID
+        data_type: NUMBER
+        unique: true
+      - name: primary_city
+        synonyms: [truck city, home city]
+        description: Home city where the truck is based.
+        expr: PRIMARY_CITY
+        data_type: VARCHAR
+      - name: region
+        synonyms: [truck region]
+        description: Geographic region of the truck.
+        expr: REGION
+        data_type: VARCHAR
+      - name: country
+        synonyms: [truck country]
+        description: Country where the truck operates.
+        expr: COUNTRY
+        data_type: VARCHAR
+      - name: make
+        synonyms: [truck make, manufacturer]
+        expr: MAKE
+        data_type: VARCHAR
+      - name: model
+        synonyms: [truck model]
+        expr: MODEL
+        data_type: VARCHAR
+      - name: ev_flag
+        synonyms: [electric vehicle, is ev]
+        description: 1 if electric vehicle, 0 otherwise.
+        expr: EV_FLAG
+        data_type: NUMBER
+      - name: franchise_flag
+        synonyms: [is franchise]
+        description: 1 if franchise-operated, 0 if company-owned.
+        expr: FRANCHISE_FLAG
+        data_type: NUMBER
+      - name: franchise_owner
+        expr: FRANCHISE_OWNER
+        data_type: VARCHAR
+
+  - name: locations
+    description: Location dimension with city, region, country.
+    base_table:
+      database: LARSR_DB
+      schema: PROD
+      table: DIM_LOCATION
+    primary_key:
+      columns: [LOCATION_ID]
+    dimensions:
+      - name: location_id
+        expr: LOCATION_ID
+        data_type: NUMBER
+        unique: true
+      - name: location_name
+        synonyms: [venue, place]
+        expr: LOCATION_NAME
+        data_type: VARCHAR
+      - name: city
+        synonyms: [location city]
+        expr: CITY
+        data_type: VARCHAR
+      - name: region
+        synonyms: [location region]
+        expr: REGION
+        data_type: VARCHAR
+      - name: country
+        synonyms: [location country]
+        expr: COUNTRY
+        data_type: VARCHAR
+
+  - name: customers
+    description: Customer loyalty dimension with demographics.
+    base_table:
+      database: LARSR_DB
+      schema: PROD
+      table: DIM_CUSTOMER
+    primary_key:
+      columns: [CUSTOMER_ID]
+    dimensions:
+      - name: customer_id
+        expr: CUSTOMER_ID
+        data_type: NUMBER
+        unique: true
+      - name: city
+        synonyms: [customer city]
+        expr: CITY
+        data_type: VARCHAR
+      - name: country
+        synonyms: [customer country]
+        expr: COUNTRY
+        data_type: VARCHAR
+      - name: gender
+        expr: GENDER
+        data_type: VARCHAR
+      - name: favourite_brand
+        synonyms: [preferred brand, favorite brand]
+        expr: FAVOURITE_BRAND
+        data_type: VARCHAR
+      - name: marital_status
+        expr: MARITAL_STATUS
+        data_type: VARCHAR
+
+metrics:
+  - name: gross_profit_margin
+    synonyms: [margin, gp margin, profit margin, gross margin]
+    description: Gross profit margin as a ratio (multiply by 100 for percentage).
+    expr: daily_sales.total_gross_profit / NULLIF(daily_sales.total_revenue, 0)
+
+relationships:
+  - name: daily_sales_to_trucks
+    left_table: daily_sales
+    right_table: trucks
+    relationship_columns:
+      - left_column: TRUCK_ID
+        right_column: TRUCK_ID
+  - name: daily_sales_to_locations
+    left_table: daily_sales
+    right_table: locations
+    relationship_columns:
+      - left_column: LOCATION_ID
+        right_column: LOCATION_ID
+
+verified_queries:
+  - name: top_5_trucks_by_revenue
+    question: What are the top 5 trucks by revenue?
+    verified_at: 1747267200
+    verified_by: LARSR
+    use_as_onboarding_question: true
+    sql: |
+      SELECT t.truck_id, t.primary_city, t.country, t.make, t.model,
+             SUM(ds.total_revenue) AS total_revenue,
+             SUM(ds.total_gross_profit) AS total_gross_profit,
+             SUM(ds.order_count) AS total_orders
+      FROM LARSR_DB.PROD.FCT_DAILY_SALES ds
+      JOIN LARSR_DB.PROD.DIM_TRUCK t ON ds.truck_id = t.truck_id
+      GROUP BY t.truck_id, t.primary_city, t.country, t.make, t.model
+      ORDER BY total_revenue DESC LIMIT 5
+  - name: yearly_revenue_trend
+    question: What is the annual revenue trend year over year?
+    verified_at: 1747267200
+    verified_by: LARSR
+    use_as_onboarding_question: true
+    sql: |
+      SELECT DATE_TRUNC('YEAR', ds.order_date) AS year,
+             SUM(ds.total_revenue) AS total_revenue,
+             SUM(ds.total_gross_profit) AS total_gross_profit,
+             SUM(ds.total_gross_profit) / NULLIF(SUM(ds.total_revenue), 0) AS gross_profit_margin,
+             SUM(ds.order_count) AS total_orders
+      FROM LARSR_DB.PROD.FCT_DAILY_SALES ds
+      GROUP BY DATE_TRUNC('YEAR', ds.order_date)
+      ORDER BY year
+  - name: revenue_by_region
+    question: What is the total revenue by region?
+    verified_at: 1747267200
+    verified_by: LARSR
+    use_as_onboarding_question: true
+    sql: |
+      SELECT l.region, SUM(ds.total_revenue) AS total_revenue,
+             SUM(ds.total_gross_profit) AS total_gross_profit,
+             SUM(ds.order_count) AS total_orders
+      FROM LARSR_DB.PROD.FCT_DAILY_SALES ds
+      JOIN LARSR_DB.PROD.DIM_LOCATION l ON ds.location_id = l.location_id
+      GROUP BY l.region ORDER BY total_revenue DESC

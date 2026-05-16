@@ -1,0 +1,2288 @@
+
+
+============================== 16:01:10.329487 | f019b44b-c872-48fb-adb8-51e2fcf3bc24 ==============================
+[0m16:01:10.329487 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:01:10.330660 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/tmp/dbt/logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt ', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m16:01:10.585432 [debug] [Dummy-1   ]: Set downloads directory='/tmp/dbt-downloads-5v_z1764'
+[0m16:01:10.586445 [debug] [Dummy-1   ]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m16:01:10.603418 [debug] [Dummy-1   ]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m16:01:10.604544 [debug] [Dummy-1   ]: Making package registry request: GET https://hub.getdbt.com/api/v1/Snowflake-Labs/dbt_semantic_view.json
+[0m16:01:10.621272 [debug] [Dummy-1   ]: Response from registry: GET https://hub.getdbt.com/api/v1/Snowflake-Labs/dbt_semantic_view.json 200
+[0m16:01:10.631568 [info ] [Dummy-1   ]: Updating lock file in file path: /tmp/dbt/package-lock.yml
+[0m16:01:10.634996 [debug] [Dummy-1   ]: Set downloads directory='/tmp/dbt-downloads-jjtc7rx7'
+[0m16:01:10.636787 [info ] [Dummy-1   ]: Installing Snowflake-Labs/dbt_semantic_view
+[0m16:01:10.809967 [info ] [Dummy-1   ]: Installed from version 1.0.4
+[0m16:01:10.810783 [info ] [Dummy-1   ]: Up to date!
+[0m16:01:10.813248 [debug] [Dummy-1   ]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.5877579, "process_in_blocks": "0", "process_kernel_time": 1.0, "process_mem_max_rss": "396908", "process_out_blocks": "0", "process_user_time": 4.44}
+[0m16:01:10.814029 [debug] [Dummy-1   ]: Command `cli deps` succeeded at 16:01:10.813727 after 0.59 seconds
+[0m16:01:10.814614 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:01:38.801333 | 8297af4f-c3f5-4673-82d7-3995ac422a25 ==============================
+[0m16:01:38.801333 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:01:38.802384 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/tmp/dbt/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt ', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': '/tmp/dbt/target/', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m16:01:38.874176 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:01:39.182462 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:01:39.243727 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:01:39.245203 [info ] [Dummy-1   ]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:01:41.424715 [error] [Dummy-1   ]: Encountered an error:
+Parsing Error
+  Invalid semantic_models config given in FilePath(searched_path='models', relative_path='semantic/sem_sales_analytics.yml', modification_time=1778767293.5296698, project_root='/tmp/dbt') @ semantic_models: {'name': 'tasty_bytes_sales_analytics', 'description': 'Core analytics semantic model for the Tasty Bytes food truck business. Provides business-friendly metrics and dimensions for use with Snowflake Cortex Analyst natural language querying.\n', 'defaults': {'agg_time_dimension': 'order_date'}, 'entities': [{'name': 'daily_sales', 'type': 'primary', 'description': 'Daily aggregated sales by truck, location, brand, menu type, and item category', 'expr': 'fct_daily_sales'}, {'name': 'order', 'type': 'primary', 'description': 'Individual order-level facts', 'expr': 'fct_order_summary'}, {'name': 'customer', 'type': 'foreign', 'description': 'Loyalty program customer dimension', 'expr': 'dim_customer'}, {'name': 'truck', 'type': 'foreign', 'description': 'Food truck fleet dimension with franchise info', 'expr': 'dim_truck'}, {'name': 'location', 'type': 'foreign', 'description': 'Point-of-sale location dimension', 'expr': 'dim_location'}, {'name': 'menu_item', 'type': 'foreign', 'description': 'Menu item dimension with pricing and health data', 'expr': 'dim_menu'}], 'dimensions': [{'name': 'order_date', 'type': 'time', 'description': 'Date of the sales activity', 'expr': 'ORDER_DATE', 'synonyms': ['date', 'sales date', 'day']}, {'name': 'truck_brand', 'type': 'categorical', 'description': 'Food truck brand name', 'expr': 'TRUCK_BRAND_NAME', 'synonyms': ['brand', 'brand name']}, {'name': 'menu_type', 'type': 'categorical', 'description': 'Type of menu / cuisine served', 'expr': 'MENU_TYPE', 'synonyms': ['cuisine', 'food type']}, {'name': 'item_category', 'type': 'categorical', 'description': 'Product category (Beverage, Dessert, Main, etc.)', 'expr': 'ITEM_CATEGORY', 'synonyms': ['product category', 'food category']}, {'name': 'truck_city', 'type': 'categorical', 'description': 'Primary city of the food truck', 'expr': 'PRIMARY_CITY', 'synonyms': ['city', 'home city']}, {'name': 'truck_region', 'type': 'categorical', 'description': 'Geographic region of the truck', 'expr': 'REGION', 'synonyms': ['region']}, {'name': 'truck_country', 'type': 'categorical', 'description': 'Country of the truck operation', 'expr': 'COUNTRY', 'synonyms': ['country']}, {'name': 'franchise_flag', 'type': 'categorical', 'description': 'Whether the truck is a franchise (1) or company-owned (0)', 'expr': 'FRANCHISE_FLAG', 'synonyms': ['is franchise']}, {'name': 'ev_flag', 'type': 'categorical', 'description': 'Whether the truck is an electric vehicle (1) or not (0)', 'expr': 'EV_FLAG', 'synonyms': ['electric vehicle', 'is electric']}, {'name': 'order_channel', 'type': 'categorical', 'description': 'Sales channel for the order', 'expr': 'ORDER_CHANNEL', 'synonyms': ['channel', 'sales channel']}, {'name': 'customer_country', 'type': 'categorical', 'description': 'Customer country of residence', 'expr': 'COUNTRY', 'synonyms': ['customer country']}, {'name': 'customer_gender', 'type': 'categorical', 'description': 'Customer gender', 'expr': 'GENDER'}], 'metrics': [{'name': 'total_revenue', 'type': 'sum', 'description': 'Total revenue from sales in USD', 'expr': 'TOTAL_REVENUE', 'synonyms': ['revenue', 'sales', 'total sales', 'gross revenue']}, {'name': 'total_orders', 'type': 'sum', 'description': 'Total number of orders placed', 'expr': 'TOTAL_ORDERS', 'synonyms': ['order count', 'number of orders']}, {'name': 'total_items_sold', 'type': 'sum', 'description': 'Total quantity of items sold', 'expr': 'ITEMS_SOLD', 'synonyms': ['units sold', 'items sold', 'quantity sold']}, {'name': 'total_cogs', 'type': 'sum', 'description': 'Total cost of goods sold in USD', 'expr': 'TOTAL_COGS', 'synonyms': ['cost of goods', 'cogs', 'total cost']}, {'name': 'total_profit', 'type': 'sum', 'description': 'Total gross profit (revenue minus COGS) in USD', 'expr': 'TOTAL_PROFIT', 'synonyms': ['gross profit', 'margin', 'profit']}, {'name': 'avg_order_value', 'type': 'derived', 'description': 'Average revenue per order (total_revenue / total_orders)', 'expr': 'total_revenue / total_orders', 'synonyms': ['AOV', 'average order value', 'average ticket']}, {'name': 'avg_items_per_order', 'type': 'derived', 'description': 'Average number of items per order (total_items_sold / total_orders)', 'expr': 'total_items_sold / total_orders', 'synonyms': ['basket size', 'items per order']}, {'name': 'profit_margin_pct', 'type': 'derived', 'description': 'Gross profit margin as a percentage (total_profit / total_revenue * 100)', 'expr': 'total_profit / NULLIF(total_revenue, 0) * 100', 'synonyms': ['margin percentage', 'profit margin', 'gross margin %']}]} - at path ['dimensions'][0]: Additional properties are not allowed ('synonyms' was unexpected)
+[0m16:01:41.427180 [debug] [Dummy-1   ]: Resource report: {"command_name": "compile", "command_success": false, "command_wall_clock_time": 2.7251763, "process_in_blocks": "0", "process_kernel_time": 1.26, "process_mem_max_rss": "458984", "process_out_blocks": "0", "process_user_time": 6.24}
+[0m16:01:41.427939 [debug] [Dummy-1   ]: Command `cli compile` failed at 16:01:41.427649 after 2.73 seconds
+[0m16:01:41.428678 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:02:30.515342 | 61c04d8f-9269-4ed1-8e97-21edb8b6b4a0 ==============================
+[0m16:02:30.515342 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:02:30.516421 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/tmp/dbt/', 'log_path': '/tmp/dbt/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'invocation_command': 'dbt ', 'introspect': 'True', 'static_parser': 'True', 'target_path': '/tmp/dbt/target/', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m16:02:30.589852 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:02:30.899584 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:02:30.963129 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:02:30.964823 [info ] [Dummy-1   ]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:02:33.344926 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:02:33.347759 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:02:33.391283 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:02:33.394928 [info ] [Dummy-1   ]: 
+[0m16:02:33.395651 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:02:33.396236 [info ] [Dummy-1   ]: 
+[0m16:02:33.397086 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:02:33.405696 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB_PROD'
+[0m16:02:33.523020 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:02:33.523753 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:02:33.524294 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:02:34.368425 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.844 seconds
+[0m16:02:34.374347 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:02:34.374984 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:02:34.525807 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.150 seconds
+[0m16:02:34.528436 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:02:34.529103 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:02:34.673250 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.143 seconds
+[0m16:02:34.683059 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_countries
+[0m16:02:34.683974 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_customers
+[0m16:02:34.684826 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_franchises
+[0m16:02:34.685682 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_locations
+[0m16:02:34.686490 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.stg_countries)
+[0m16:02:34.687385 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_customers'
+[0m16:02:34.688195 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_franchises'
+[0m16:02:34.689142 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_locations'
+[0m16:02:34.689780 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_countries
+[0m16:02:34.690356 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_customers
+[0m16:02:34.691364 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_franchises
+[0m16:02:34.692000 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_locations
+[0m16:02:34.709466 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_countries"
+[0m16:02:34.722753 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_customers"
+[0m16:02:34.734294 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_franchises"
+[0m16:02:34.747308 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_locations"
+[0m16:02:34.749871 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_countries
+[0m16:02:34.750668 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_customers
+[0m16:02:34.751262 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_franchises
+[0m16:02:34.752446 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_countries
+[0m16:02:34.753129 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_locations
+[0m16:02:34.754157 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_customers
+[0m16:02:34.755171 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_franchises
+[0m16:02:34.756485 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_menu
+[0m16:02:34.757744 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_locations
+[0m16:02:34.759024 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_order_details
+[0m16:02:34.760327 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_orders
+[0m16:02:34.761201 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_countries, now model.tasty_bytes.stg_menu)
+[0m16:02:34.762243 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_trucks
+[0m16:02:34.763234 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_customers, now model.tasty_bytes.stg_order_details)
+[0m16:02:34.763929 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_franchises, now model.tasty_bytes.stg_orders)
+[0m16:02:34.764569 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_menu
+[0m16:02:34.765266 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_locations, now model.tasty_bytes.stg_trucks)
+[0m16:02:34.765879 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_order_details
+[0m16:02:34.766456 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_orders
+[0m16:02:34.778040 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_menu"
+[0m16:02:34.778877 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_trucks
+[0m16:02:34.790264 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_order_details"
+[0m16:02:34.803318 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_orders"
+[0m16:02:34.815049 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_trucks"
+[0m16:02:34.815751 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_menu
+[0m16:02:34.816879 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_order_details
+[0m16:02:34.817801 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_orders
+[0m16:02:34.819052 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_menu
+[0m16:02:34.819727 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_trucks
+[0m16:02:34.820719 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_order_details
+[0m16:02:34.821766 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_orders
+[0m16:02:34.823005 [debug] [Thread-2 (]: Began running node model.tasty_bytes.dim_customer
+[0m16:02:34.824405 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_trucks
+[0m16:02:34.825630 [debug] [Thread-3 (]: Began running node model.tasty_bytes.dim_location
+[0m16:02:34.826750 [debug] [Thread-4 (]: Began running node model.tasty_bytes.dim_menu
+[0m16:02:34.827779 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_menu, now model.tasty_bytes.dim_customer)
+[0m16:02:34.828983 [debug] [Thread-5 (]: Began running node model.tasty_bytes.int_order_details_enriched
+[0m16:02:34.830038 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_order_details, now model.tasty_bytes.dim_location)
+[0m16:02:34.830706 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_orders, now model.tasty_bytes.dim_menu)
+[0m16:02:34.831321 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.dim_customer
+[0m16:02:34.832014 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_trucks, now model.tasty_bytes.int_order_details_enriched)
+[0m16:02:34.832611 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.dim_location
+[0m16:02:34.833208 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.dim_menu
+[0m16:02:34.846169 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.dim_customer"
+[0m16:02:34.846856 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.int_order_details_enriched
+[0m16:02:34.858038 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.dim_location"
+[0m16:02:34.870704 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.dim_menu"
+[0m16:02:34.882864 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:02:34.883765 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.dim_customer
+[0m16:02:34.884680 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.dim_location
+[0m16:02:34.885792 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.dim_menu
+[0m16:02:34.886909 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.dim_customer
+[0m16:02:34.887715 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.int_order_details_enriched
+[0m16:02:34.888729 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.dim_location
+[0m16:02:34.889799 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.dim_menu
+[0m16:02:34.891048 [debug] [Thread-2 (]: Began running node model.tasty_bytes.int_trucks_enriched
+[0m16:02:34.892205 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.int_order_details_enriched
+[0m16:02:34.893845 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_customer, now model.tasty_bytes.int_trucks_enriched)
+[0m16:02:34.895387 [debug] [Thread-3 (]: Began running node model.tasty_bytes.fct_daily_sales
+[0m16:02:34.896102 [debug] [Thread-4 (]: Began running node model.tasty_bytes.fct_order_summary
+[0m16:02:34.896733 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.int_trucks_enriched
+[0m16:02:34.897450 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_location, now model.tasty_bytes.fct_daily_sales)
+[0m16:02:34.898102 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_menu, now model.tasty_bytes.fct_order_summary)
+[0m16:02:34.910027 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:02:34.910768 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.fct_daily_sales
+[0m16:02:34.911425 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.fct_order_summary
+[0m16:02:34.923273 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.int_trucks_enriched
+[0m16:02:34.925467 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.fct_daily_sales"
+[0m16:02:34.936747 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.fct_order_summary"
+[0m16:02:34.937954 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.int_trucks_enriched
+[0m16:02:34.939295 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.fct_daily_sales
+[0m16:02:34.940804 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.fct_order_summary
+[0m16:02:34.941648 [debug] [Thread-5 (]: Began running node model.tasty_bytes.dim_truck
+[0m16:02:34.942703 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.fct_daily_sales
+[0m16:02:34.943747 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.fct_order_summary
+[0m16:02:34.944510 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.int_order_details_enriched, now model.tasty_bytes.dim_truck)
+[0m16:02:34.946405 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.dim_truck
+[0m16:02:35.109184 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.dim_truck"
+[0m16:02:35.110091 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.dim_truck
+[0m16:02:35.111116 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.dim_truck
+[0m16:02:35.112899 [debug] [Thread-2 (]: Began running node model.tasty_bytes.sem_sales_analytics
+[0m16:02:35.113961 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.int_trucks_enriched, now model.tasty_bytes.sem_sales_analytics)
+[0m16:02:35.114578 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.sem_sales_analytics
+[0m16:02:35.128205 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.sem_sales_analytics"
+[0m16:02:35.129275 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.sem_sales_analytics
+[0m16:02:35.130329 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.sem_sales_analytics
+[0m16:02:35.133684 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:02:35.134244 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.sem_sales_analytics' was properly closed.
+[0m16:02:35.134773 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_daily_sales' was properly closed.
+[0m16:02:35.135229 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_order_summary' was properly closed.
+[0m16:02:35.135665 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.dim_truck' was properly closed.
+[0m16:02:35.139206 [debug] [Dummy-1   ]: Command end result
+[0m16:02:35.178541 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:02:35.181339 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:02:35.191230 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:02:35.193279 [debug] [Dummy-1   ]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 4.778784, "process_in_blocks": "0", "process_kernel_time": 1.12, "process_mem_max_rss": "502748", "process_out_blocks": "0", "process_user_time": 7.31}
+[0m16:02:35.194031 [debug] [Dummy-1   ]: Command `cli compile` succeeded at 16:02:35.193744 after 4.78 seconds
+[0m16:02:35.194603 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:03:21.985039 | 6614c91f-afc8-47dd-b3ec-b3cf0a3cf7f2 ==============================
+[0m16:03:21.985039 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:03:21.986136 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/tmp/dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': '/tmp/dbt/target/', 'invocation_command': 'dbt ', 'send_anonymous_usage_stats': 'False'}
+[0m16:03:22.061224 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:03:22.381565 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:03:22.447011 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:03:22.836149 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:03:22.836848 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:03:23.018228 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:03:23.021154 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:03:23.080072 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:03:23.083429 [info ] [Dummy-1   ]: 
+[0m16:03:23.084160 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:03:23.084751 [info ] [Dummy-1   ]: 
+[0m16:03:23.085702 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:03:23.093680 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:03:23.207850 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:03:23.208635 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:03:23.209234 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:03:24.051044 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.842 seconds
+[0m16:03:24.056708 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:03:24.079717 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:03:24.080386 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:03:24.080880 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:03:25.056860 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.976 seconds
+[0m16:03:25.062935 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:03:25.063614 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:03:25.191175 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.127 seconds
+[0m16:03:25.193689 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:03:25.194279 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:03:25.349859 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.155 seconds
+[0m16:03:25.358952 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_countries
+[0m16:03:25.359882 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_customers
+[0m16:03:25.360703 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_franchises
+[0m16:03:25.361547 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_locations
+[0m16:03:25.362956 [info ] [Thread-2 (]: 1 of 8 START sql view model PROD.stg_countries ................................. [RUN]
+[0m16:03:25.364107 [info ] [Thread-3 (]: 2 of 8 START sql view model PROD.stg_customers ................................. [RUN]
+[0m16:03:25.365126 [info ] [Thread-4 (]: 3 of 8 START sql view model PROD.stg_franchises ................................ [RUN]
+[0m16:03:25.366128 [info ] [Thread-5 (]: 4 of 8 START sql view model PROD.stg_locations ................................. [RUN]
+[0m16:03:25.366961 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.stg_countries)
+[0m16:03:25.367745 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_customers'
+[0m16:03:25.368600 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_franchises'
+[0m16:03:25.369407 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_locations'
+[0m16:03:25.370027 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_countries
+[0m16:03:25.370629 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_customers
+[0m16:03:25.371229 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_franchises
+[0m16:03:25.371777 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_locations
+[0m16:03:25.391169 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_countries"
+[0m16:03:25.402756 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_customers"
+[0m16:03:25.414437 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_franchises"
+[0m16:03:25.428558 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_locations"
+[0m16:03:25.429904 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_countries
+[0m16:03:25.430826 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_customers
+[0m16:03:25.448726 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_locations
+[0m16:03:25.460641 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_franchises
+[0m16:03:25.508137 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.stg_countries"
+[0m16:03:25.510546 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.stg_customers"
+[0m16:03:25.522078 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.stg_locations"
+[0m16:03:25.534833 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.stg_franchises"
+[0m16:03:25.537690 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.stg_countries"
+[0m16:03:25.539527 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.stg_customers"
+[0m16:03:25.540581 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.stg_locations"
+[0m16:03:25.541367 [debug] [Thread-2 (]: On model.tasty_bytes.stg_countries: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_countries"} */
+create or replace   view LARSR_DB.PROD.stg_countries
+  
+   as (
+    SELECT
+    COUNTRY_ID,
+    COUNTRY,
+    ISO_CURRENCY,
+    ISO_COUNTRY,
+    CITY_ID,
+    CITY,
+    TRY_TO_NUMBER(CITY_POPULATION) AS CITY_POPULATION
+FROM LARSR_DB.RAW.country
+  );
+[0m16:03:25.542532 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.stg_franchises"
+[0m16:03:25.543218 [debug] [Thread-3 (]: On model.tasty_bytes.stg_customers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_customers"} */
+create or replace   view LARSR_DB.PROD.stg_customers
+  
+   as (
+    SELECT
+    CUSTOMER_ID,
+    FIRST_NAME,
+    LAST_NAME,
+    CITY,
+    COUNTRY,
+    POSTAL_CODE,
+    PREFERRED_LANGUAGE,
+    GENDER,
+    FAVOURITE_BRAND,
+    MARITAL_STATUS,
+    TRY_TO_NUMBER(CHILDREN_COUNT) AS CHILDREN_COUNT,
+    SIGN_UP_DATE,
+    BIRTHDAY_DATE,
+    E_MAIL,
+    PHONE_NUMBER
+FROM LARSR_DB.RAW.customer_loyalty
+  );
+[0m16:03:25.543888 [debug] [Thread-5 (]: On model.tasty_bytes.stg_locations: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_locations"} */
+create or replace   view LARSR_DB.PROD.stg_locations
+  
+   as (
+    SELECT
+    LOCATION_ID,
+    PLACEKEY,
+    LOCATION,
+    CITY,
+    REGION,
+    ISO_COUNTRY_CODE,
+    COUNTRY
+FROM LARSR_DB.RAW.location
+  );
+[0m16:03:25.544521 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:03:25.545163 [debug] [Thread-4 (]: On model.tasty_bytes.stg_franchises: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_franchises"} */
+create or replace   view LARSR_DB.PROD.stg_franchises
+  
+   as (
+    SELECT
+    FRANCHISE_ID,
+    FIRST_NAME,
+    LAST_NAME,
+    FIRST_NAME || ' ' || LAST_NAME AS FULL_NAME,
+    CITY,
+    COUNTRY,
+    E_MAIL,
+    PHONE_NUMBER
+FROM LARSR_DB.RAW.franchise
+  );
+[0m16:03:25.545808 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:03:25.546393 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:03:25.547198 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:03:26.653404 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.106 seconds
+[0m16:03:26.677359 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.133 seconds
+[0m16:03:26.683761 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.137 seconds
+[0m16:03:26.695233 [info ] [Thread-4 (]: 3 of 8 OK created sql view model PROD.stg_franchises ........................... [[32mSUCCESS 1[0m in 1.32s]
+[0m16:03:26.696322 [info ] [Thread-2 (]: 1 of 8 OK created sql view model PROD.stg_countries ............................ [[32mSUCCESS 1[0m in 1.32s]
+[0m16:03:26.697424 [info ] [Thread-5 (]: 4 of 8 OK created sql view model PROD.stg_locations ............................ [[32mSUCCESS 1[0m in 1.32s]
+[0m16:03:26.698497 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_franchises
+[0m16:03:26.699389 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_countries
+[0m16:03:26.700257 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_locations
+[0m16:03:26.701568 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_menu
+[0m16:03:26.702813 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_order_details
+[0m16:03:26.703898 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_orders
+[0m16:03:26.704968 [info ] [Thread-4 (]: 5 of 8 START sql view model PROD.stg_menu ...................................... [RUN]
+[0m16:03:26.705913 [info ] [Thread-2 (]: 6 of 8 START sql view model PROD.stg_order_details ............................. [RUN]
+[0m16:03:26.706812 [info ] [Thread-5 (]: 7 of 8 START sql view model PROD.stg_orders .................................... [RUN]
+[0m16:03:26.707684 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_franchises, now model.tasty_bytes.stg_menu)
+[0m16:03:26.708448 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_countries, now model.tasty_bytes.stg_order_details)
+[0m16:03:26.709169 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_locations, now model.tasty_bytes.stg_orders)
+[0m16:03:26.709833 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_menu
+[0m16:03:26.710442 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_order_details
+[0m16:03:26.711006 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_orders
+[0m16:03:26.722727 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_menu"
+[0m16:03:26.735019 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.189 seconds
+[0m16:03:26.737052 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_order_details"
+[0m16:03:26.748631 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_orders"
+[0m16:03:26.752891 [info ] [Thread-3 (]: 2 of 8 OK created sql view model PROD.stg_customers ............................ [[32mSUCCESS 1[0m in 1.38s]
+[0m16:03:26.753654 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_menu
+[0m16:03:26.754848 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_order_details
+[0m16:03:26.755821 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_customers
+[0m16:03:26.756494 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_orders
+[0m16:03:26.769547 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.stg_menu"
+[0m16:03:26.781150 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.stg_order_details"
+[0m16:03:26.782458 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_trucks
+[0m16:03:26.795255 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.stg_orders"
+[0m16:03:26.797225 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.stg_menu"
+[0m16:03:26.798448 [info ] [Thread-3 (]: 8 of 8 START sql view model PROD.stg_trucks .................................... [RUN]
+[0m16:03:26.799864 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.stg_order_details"
+[0m16:03:26.800872 [debug] [Thread-4 (]: On model.tasty_bytes.stg_menu: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_menu"} */
+create or replace   view LARSR_DB.PROD.stg_menu
+  
+   as (
+    SELECT
+    MENU_ID,
+    MENU_TYPE_ID,
+    MENU_TYPE,
+    TRUCK_BRAND_NAME,
+    MENU_ITEM_ID,
+    MENU_ITEM_NAME,
+    ITEM_CATEGORY,
+    ITEM_SUBCATEGORY,
+    COST_OF_GOODS_USD,
+    SALE_PRICE_USD,
+    SALE_PRICE_USD - COST_OF_GOODS_USD AS PROFIT_MARGIN_USD,
+    MENU_ITEM_HEALTH_METRICS_OBJ
+FROM LARSR_DB.RAW.menu
+  );
+[0m16:03:26.802603 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.stg_orders"
+[0m16:03:26.803368 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_customers, now model.tasty_bytes.stg_trucks)
+[0m16:03:26.804043 [debug] [Thread-2 (]: On model.tasty_bytes.stg_order_details: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_order_details"} */
+create or replace   view LARSR_DB.PROD.stg_order_details
+  
+   as (
+    SELECT
+    ORDER_DETAIL_ID,
+    ORDER_ID,
+    MENU_ITEM_ID,
+    DISCOUNT_ID,
+    LINE_NUMBER,
+    QUANTITY,
+    UNIT_PRICE,
+    PRICE,
+    TRY_TO_DECIMAL(ORDER_ITEM_DISCOUNT_AMOUNT, 38, 4) AS ORDER_ITEM_DISCOUNT_AMOUNT
+FROM LARSR_DB.RAW.order_detail
+  );
+[0m16:03:26.804665 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:03:26.805376 [debug] [Thread-5 (]: On model.tasty_bytes.stg_orders: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_orders"} */
+create or replace   view LARSR_DB.PROD.stg_orders
+  
+   as (
+    SELECT
+    ORDER_ID,
+    TRUCK_ID,
+    LOCATION_ID::NUMBER(19,0) AS LOCATION_ID,
+    CUSTOMER_ID,
+    DISCOUNT_ID,
+    SHIFT_ID,
+    SHIFT_START_TIME,
+    SHIFT_END_TIME,
+    ORDER_CHANNEL,
+    ORDER_TS,
+    TRY_TO_TIMESTAMP_NTZ(SERVED_TS) AS SERVED_TS,
+    ORDER_CURRENCY,
+    ORDER_AMOUNT,
+    TRY_TO_DECIMAL(ORDER_TAX_AMOUNT, 38, 4) AS ORDER_TAX_AMOUNT,
+    TRY_TO_DECIMAL(ORDER_DISCOUNT_AMOUNT, 38, 4) AS ORDER_DISCOUNT_AMOUNT,
+    ORDER_TOTAL,
+    DATE_TRUNC('DAY', ORDER_TS) AS ORDER_DATE
+FROM LARSR_DB.RAW.order_header
+  );
+[0m16:03:26.806040 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_trucks
+[0m16:03:26.806609 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:03:26.807348 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:03:26.819113 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_trucks"
+[0m16:03:26.820469 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_trucks
+[0m16:03:26.833478 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.stg_trucks"
+[0m16:03:26.835046 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.stg_trucks"
+[0m16:03:26.835712 [debug] [Thread-3 (]: On model.tasty_bytes.stg_trucks: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_trucks"} */
+create or replace   view LARSR_DB.PROD.stg_trucks
+  
+   as (
+    SELECT
+    TRUCK_ID,
+    MENU_TYPE_ID,
+    PRIMARY_CITY,
+    REGION,
+    ISO_REGION,
+    COUNTRY,
+    ISO_COUNTRY_CODE,
+    FRANCHISE_FLAG,
+    YEAR AS TRUCK_YEAR,
+    MAKE,
+    MODEL,
+    EV_FLAG,
+    FRANCHISE_ID,
+    TRUCK_OPENING_DATE
+FROM LARSR_DB.RAW.truck
+  );
+[0m16:03:26.836288 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:03:27.817699 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.011 seconds
+[0m16:03:27.821678 [info ] [Thread-2 (]: 6 of 8 OK created sql view model PROD.stg_order_details ........................ [[32mSUCCESS 1[0m in 1.11s]
+[0m16:03:27.822638 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_order_details
+[0m16:03:27.951674 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.115 seconds
+[0m16:03:27.955500 [info ] [Thread-3 (]: 8 of 8 OK created sql view model PROD.stg_trucks ............................... [[32mSUCCESS 1[0m in 1.15s]
+[0m16:03:27.956466 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_trucks
+[0m16:03:28.018521 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.214 seconds
+[0m16:03:28.022295 [info ] [Thread-4 (]: 5 of 8 OK created sql view model PROD.stg_menu ................................. [[32mSUCCESS 1[0m in 1.31s]
+[0m16:03:28.023242 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_menu
+[0m16:03:28.041654 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.234 seconds
+[0m16:03:28.045954 [info ] [Thread-5 (]: 7 of 8 OK created sql view model PROD.stg_orders ............................... [[32mSUCCESS 1[0m in 1.34s]
+[0m16:03:28.046904 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_orders
+[0m16:03:28.050807 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:03:28.051530 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_order_details' was properly closed.
+[0m16:03:28.052012 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_trucks' was properly closed.
+[0m16:03:28.052454 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_menu' was properly closed.
+[0m16:03:28.052892 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_orders' was properly closed.
+[0m16:03:28.053717 [info ] [Dummy-1   ]: 
+[0m16:03:28.054366 [info ] [Dummy-1   ]: Finished running 8 view models in 0 hours 0 minutes and 4.97 seconds (4.97s).
+[0m16:03:28.056538 [debug] [Dummy-1   ]: Command end result
+[0m16:03:28.096348 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:03:28.099185 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:03:28.107665 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:03:28.108449 [info ] [Dummy-1   ]: 
+[0m16:03:28.109334 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:03:28.109969 [info ] [Dummy-1   ]: 
+[0m16:03:28.110624 [info ] [Dummy-1   ]: Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[0m16:03:28.112532 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 6.229869, "process_in_blocks": "0", "process_kernel_time": 1.15, "process_mem_max_rss": "448876", "process_out_blocks": "0", "process_user_time": 6.01}
+[0m16:03:28.113272 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:03:28.112974 after 6.23 seconds
+[0m16:03:28.113842 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:03:51.667629 | bc4bbc28-8d97-4146-8ca8-75506e17b0c6 ==============================
+[0m16:03:51.667629 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:03:51.668858 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'debug': 'False', 'log_path': '/tmp/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': '/tmp/dbt/target/', 'invocation_command': 'dbt ', 'send_anonymous_usage_stats': 'False'}
+[0m16:03:51.742923 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:03:52.057916 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:03:52.122209 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:03:52.512247 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:03:52.512934 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:03:52.691769 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:03:52.694653 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:03:52.751882 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:03:52.754800 [info ] [Dummy-1   ]: 
+[0m16:03:52.755495 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:03:52.756089 [info ] [Dummy-1   ]: 
+[0m16:03:52.756977 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:03:52.764774 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:03:52.878714 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:03:52.879392 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:03:52.879896 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:03:53.958994 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 1.079 seconds
+[0m16:03:53.964696 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:03:53.987767 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:03:53.988521 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:03:53.989095 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:03:54.799236 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.810 seconds
+[0m16:03:54.805181 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:03:54.805837 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:03:54.968167 [debug] [ThreadPool]: SQL status: SUCCESS 8 in 0.162 seconds
+[0m16:03:54.971275 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:03:54.971877 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:03:55.138940 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.166 seconds
+[0m16:03:55.151774 [debug] [Thread-2 (]: Began running node model.tasty_bytes.int_order_details_enriched
+[0m16:03:55.152685 [debug] [Thread-3 (]: Began running node model.tasty_bytes.int_trucks_enriched
+[0m16:03:55.153856 [info ] [Thread-2 (]: 1 of 2 START sql dynamic_table model PROD.int_order_details_enriched ........... [RUN]
+[0m16:03:55.155297 [info ] [Thread-3 (]: 2 of 2 START sql dynamic_table model PROD.int_trucks_enriched .................. [RUN]
+[0m16:03:55.156255 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.int_order_details_enriched)
+[0m16:03:55.157090 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.int_trucks_enriched'
+[0m16:03:55.157752 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.int_order_details_enriched
+[0m16:03:55.158397 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.int_trucks_enriched
+[0m16:03:55.178512 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:03:55.190771 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:03:55.192047 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.int_order_details_enriched
+[0m16:03:55.198847 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.int_trucks_enriched
+[0m16:03:55.254940 [debug] [Thread-2 (]: Applying CREATE to: LARSR_DB.PROD.int_order_details_enriched
+[0m16:03:55.255539 [debug] [Thread-3 (]: Applying CREATE to: LARSR_DB.PROD.int_trucks_enriched
+[0m16:03:55.270744 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:03:55.272322 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:03:55.275372 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.int_order_details_enriched"
+[0m16:03:55.277259 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.int_trucks_enriched"
+[0m16:03:55.278027 [debug] [Thread-2 (]: On model.tasty_bytes.int_order_details_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_order_details_enriched"} */
+create dynamic table LARSR_DB.PROD.int_order_details_enriched
+        target_lag = '1 hour'
+        warehouse = LARSR_WH
+        refresh_mode = AUTO
+
+        initialize = ON_CREATE
+
+        as (
+            SELECT
+    od.ORDER_DETAIL_ID,
+    od.ORDER_ID,
+    o.TRUCK_ID,
+    o.LOCATION_ID,
+    o.CUSTOMER_ID,
+    o.ORDER_TS,
+    o.ORDER_DATE,
+    o.ORDER_CHANNEL,
+    o.ORDER_CURRENCY,
+    o.ORDER_TOTAL,
+    o.ORDER_TAX_AMOUNT,
+    o.ORDER_DISCOUNT_AMOUNT,
+    od.MENU_ITEM_ID,
+    m.MENU_ITEM_NAME,
+    m.MENU_TYPE,
+    m.TRUCK_BRAND_NAME,
+    m.ITEM_CATEGORY,
+    m.ITEM_SUBCATEGORY,
+    od.QUANTITY,
+    od.UNIT_PRICE,
+    od.PRICE AS LINE_TOTAL,
+    m.COST_OF_GOODS_USD,
+    od.QUANTITY * m.COST_OF_GOODS_USD AS LINE_COGS,
+    od.PRICE - (od.QUANTITY * m.COST_OF_GOODS_USD) AS LINE_PROFIT,
+    od.ORDER_ITEM_DISCOUNT_AMOUNT
+FROM LARSR_DB.PROD.stg_order_details od
+INNER JOIN LARSR_DB.PROD.stg_orders o ON od.ORDER_ID = o.ORDER_ID
+INNER JOIN LARSR_DB.PROD.stg_menu m ON od.MENU_ITEM_ID = m.MENU_ITEM_ID
+        )
+[0m16:03:55.278942 [debug] [Thread-3 (]: On model.tasty_bytes.int_trucks_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_trucks_enriched"} */
+create dynamic table LARSR_DB.PROD.int_trucks_enriched
+        target_lag = '1 hour'
+        warehouse = LARSR_WH
+        refresh_mode = AUTO
+
+        initialize = ON_CREATE
+
+        as (
+            SELECT
+    t.TRUCK_ID,
+    t.MENU_TYPE_ID,
+    t.PRIMARY_CITY,
+    t.REGION,
+    t.COUNTRY,
+    t.ISO_COUNTRY_CODE,
+    t.FRANCHISE_FLAG,
+    t.TRUCK_YEAR,
+    t.MAKE,
+    t.MODEL,
+    t.EV_FLAG,
+    t.TRUCK_OPENING_DATE,
+    f.FRANCHISE_ID,
+    f.FULL_NAME AS FRANCHISE_OWNER,
+    f.CITY AS FRANCHISE_CITY,
+    f.COUNTRY AS FRANCHISE_COUNTRY
+FROM LARSR_DB.PROD.stg_trucks t
+LEFT JOIN LARSR_DB.PROD.stg_franchises f ON t.FRANCHISE_ID = f.FRANCHISE_ID
+        )
+[0m16:03:55.279658 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:03:55.280238 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:04:01.668156 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 6.388 seconds
+[0m16:04:01.701436 [info ] [Thread-3 (]: 2 of 2 OK created sql dynamic_table model PROD.int_trucks_enriched ............. [[32mSUCCESS 1[0m in 6.54s]
+[0m16:04:01.702526 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.int_trucks_enriched
+[0m16:10:43.914327 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 408.634 seconds
+[0m16:10:43.921740 [info ] [Thread-2 (]: 1 of 2 OK created sql dynamic_table model PROD.int_order_details_enriched ...... [[32mSUCCESS 1[0m in 408.76s]
+[0m16:10:43.922764 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.int_order_details_enriched
+[0m16:10:43.926568 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:10:43.927242 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.int_order_details_enriched' was properly closed.
+[0m16:10:43.927701 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.int_trucks_enriched' was properly closed.
+[0m16:10:43.928630 [info ] [Dummy-1   ]: 
+[0m16:10:43.929418 [info ] [Dummy-1   ]: Finished running 2 dynamic table models in 0 hours 6 minutes and 51.17 seconds (411.17s).
+[0m16:10:43.930748 [debug] [Dummy-1   ]: Command end result
+[0m16:10:43.971691 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:10:43.974647 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:10:43.983244 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:10:43.983979 [info ] [Dummy-1   ]: 
+[0m16:10:43.984810 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:10:43.985479 [info ] [Dummy-1   ]: 
+[0m16:10:43.986132 [info ] [Dummy-1   ]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m16:10:43.988416 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 412.42093, "process_in_blocks": "0", "process_kernel_time": 1.09, "process_mem_max_rss": "448896", "process_out_blocks": "0", "process_user_time": 7.19}
+[0m16:10:43.989205 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:10:43.988908 after 412.42 seconds
+[0m16:10:43.989779 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:20:35.872811 | 89fe9887-a2df-44f8-a90a-5b450444702e ==============================
+[0m16:20:35.872811 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:20:35.873876 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/tmp/dbt/logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt ', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m16:20:36.130515 [debug] [Dummy-1   ]: Set downloads directory='/tmp/dbt-downloads-c3423qy8'
+[0m16:20:36.131289 [debug] [Dummy-1   ]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m16:20:36.667845 [debug] [Dummy-1   ]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m16:20:36.668989 [debug] [Dummy-1   ]: Making package registry request: GET https://hub.getdbt.com/api/v1/Snowflake-Labs/dbt_semantic_view.json
+[0m16:20:36.681745 [debug] [Dummy-1   ]: Response from registry: GET https://hub.getdbt.com/api/v1/Snowflake-Labs/dbt_semantic_view.json 200
+[0m16:20:36.684015 [info ] [Dummy-1   ]: Installing Snowflake-Labs/dbt_semantic_view
+[0m16:20:36.825277 [info ] [Dummy-1   ]: Installed from version 1.0.4
+[0m16:20:36.825992 [info ] [Dummy-1   ]: Up to date!
+[0m16:20:36.828465 [debug] [Dummy-1   ]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 1.0576532, "process_in_blocks": "0", "process_kernel_time": 1.02, "process_mem_max_rss": "401180", "process_out_blocks": "0", "process_user_time": 4.43}
+[0m16:20:36.829278 [debug] [Dummy-1   ]: Command `cli deps` succeeded at 16:20:36.828975 after 1.06 seconds
+[0m16:20:36.829861 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:20:56.747523 | d344ceeb-9a5d-49dd-a4af-a4a205b8a8f2 ==============================
+[0m16:20:56.747523 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:20:56.748772 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/tmp/dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt ', 'introspect': 'True', 'target_path': '/tmp/dbt/target/', 'log_format': 'default', 'send_anonymous_usage_stats': 'False'}
+[0m16:20:56.821696 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:20:57.132123 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:20:57.194691 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:20:57.574888 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 18 files changed.
+[0m16:20:57.577628 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/sources.yml
+[0m16:20:57.578603 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/marts/dim_menu.sql
+[0m16:20:57.579319 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_order_details.sql
+[0m16:20:57.579966 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/marts/dim_customer.sql
+[0m16:20:57.580544 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_customers.sql
+[0m16:20:57.581074 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/marts/fct_daily_sales.sql
+[0m16:20:57.581625 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/intermediate/int_trucks_enriched.sql
+[0m16:20:57.582169 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/marts/dim_truck.sql
+[0m16:20:57.582720 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_franchises.sql
+[0m16:20:57.583294 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/intermediate/int_order_details_enriched.sql
+[0m16:20:57.583838 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_trucks.sql
+[0m16:20:57.584377 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_locations.sql
+[0m16:20:57.584895 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/marts/fct_order_summary.sql
+[0m16:20:57.585435 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_orders.sql
+[0m16:20:57.585965 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/marts/dim_location.sql
+[0m16:20:57.586496 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/semantic/sem_sales_analytics.sql
+[0m16:20:57.587044 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_countries.sql
+[0m16:20:57.587597 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/staging/stg_menu.sql
+[0m16:20:58.584696 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:20:58.587439 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:20:58.633749 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:20:58.637341 [info ] [Dummy-1   ]: 
+[0m16:20:58.638059 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:20:58.638760 [info ] [Dummy-1   ]: 
+[0m16:20:58.639629 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:20:58.647973 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB_PROD'
+[0m16:20:58.911568 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:20:58.912249 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:20:58.912793 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:20:59.790991 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.878 seconds
+[0m16:20:59.796820 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:20:59.797423 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:20:59.946513 [debug] [ThreadPool]: SQL status: SUCCESS 14 in 0.148 seconds
+[0m16:20:59.949879 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:20:59.950470 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:21:00.081987 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.131 seconds
+[0m16:21:00.098224 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_countries
+[0m16:21:00.099257 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_customers
+[0m16:21:00.100035 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_franchises
+[0m16:21:00.100797 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_locations
+[0m16:21:00.101570 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.stg_countries)
+[0m16:21:00.102417 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_customers'
+[0m16:21:00.103226 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_franchises'
+[0m16:21:00.104011 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_locations'
+[0m16:21:00.104637 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_countries
+[0m16:21:00.105212 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_customers
+[0m16:21:00.105775 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_franchises
+[0m16:21:00.106347 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_locations
+[0m16:21:00.123894 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_countries"
+[0m16:21:00.137826 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_customers"
+[0m16:21:00.149593 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_franchises"
+[0m16:21:00.161155 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_locations"
+[0m16:21:00.162482 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_countries
+[0m16:21:00.163374 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_customers
+[0m16:21:00.164155 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_franchises
+[0m16:21:00.165373 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_countries
+[0m16:21:00.166011 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_locations
+[0m16:21:00.166990 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_customers
+[0m16:21:00.167976 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_franchises
+[0m16:21:00.172452 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_menu
+[0m16:21:00.173726 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_locations
+[0m16:21:00.174896 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_order_details
+[0m16:21:00.176440 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_orders
+[0m16:21:00.177324 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_countries, now model.tasty_bytes.stg_menu)
+[0m16:21:00.178510 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_trucks
+[0m16:21:00.179537 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_customers, now model.tasty_bytes.stg_order_details)
+[0m16:21:00.180207 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_franchises, now model.tasty_bytes.stg_orders)
+[0m16:21:00.180848 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_menu
+[0m16:21:00.181516 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_locations, now model.tasty_bytes.stg_trucks)
+[0m16:21:00.182132 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_order_details
+[0m16:21:00.182705 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_orders
+[0m16:21:00.194221 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_menu"
+[0m16:21:00.194973 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_trucks
+[0m16:21:00.206528 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_order_details"
+[0m16:21:00.221188 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_orders"
+[0m16:21:00.233158 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_trucks"
+[0m16:21:00.233966 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_menu
+[0m16:21:00.235115 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_order_details
+[0m16:21:00.236030 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_orders
+[0m16:21:00.237125 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_menu
+[0m16:21:00.237761 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_trucks
+[0m16:21:00.238817 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_order_details
+[0m16:21:00.239849 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_orders
+[0m16:21:00.241023 [debug] [Thread-2 (]: Began running node model.tasty_bytes.dim_customer
+[0m16:21:00.242468 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_trucks
+[0m16:21:00.243631 [debug] [Thread-3 (]: Began running node model.tasty_bytes.dim_location
+[0m16:21:00.244826 [debug] [Thread-4 (]: Began running node model.tasty_bytes.dim_menu
+[0m16:21:00.245660 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_menu, now model.tasty_bytes.dim_customer)
+[0m16:21:00.246702 [debug] [Thread-5 (]: Began running node model.tasty_bytes.int_order_details_enriched
+[0m16:21:00.247750 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_order_details, now model.tasty_bytes.dim_location)
+[0m16:21:00.248548 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_orders, now model.tasty_bytes.dim_menu)
+[0m16:21:00.249221 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.dim_customer
+[0m16:21:00.249881 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_trucks, now model.tasty_bytes.int_order_details_enriched)
+[0m16:21:00.250476 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.dim_location
+[0m16:21:00.251053 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.dim_menu
+[0m16:21:00.264901 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.dim_customer"
+[0m16:21:00.265592 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.int_order_details_enriched
+[0m16:21:00.276740 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.dim_location"
+[0m16:21:00.287913 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.dim_menu"
+[0m16:21:00.302231 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:21:00.302863 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.dim_customer
+[0m16:21:00.304088 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.dim_location
+[0m16:21:00.305064 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.dim_menu
+[0m16:21:00.306157 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.dim_customer
+[0m16:21:00.306755 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.int_order_details_enriched
+[0m16:21:00.307758 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.dim_location
+[0m16:21:00.308845 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.dim_menu
+[0m16:21:00.310009 [debug] [Thread-2 (]: Began running node model.tasty_bytes.int_trucks_enriched
+[0m16:21:00.311123 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.int_order_details_enriched
+[0m16:21:00.312868 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_customer, now model.tasty_bytes.int_trucks_enriched)
+[0m16:21:00.314380 [debug] [Thread-3 (]: Began running node model.tasty_bytes.fct_daily_sales
+[0m16:21:00.315085 [debug] [Thread-4 (]: Began running node model.tasty_bytes.fct_order_summary
+[0m16:21:00.315688 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.int_trucks_enriched
+[0m16:21:00.316379 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_location, now model.tasty_bytes.fct_daily_sales)
+[0m16:21:00.317023 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_menu, now model.tasty_bytes.fct_order_summary)
+[0m16:21:00.328993 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:21:00.329683 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.fct_daily_sales
+[0m16:21:00.330269 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.fct_order_summary
+[0m16:21:00.343504 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.int_trucks_enriched
+[0m16:21:00.345015 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.fct_daily_sales"
+[0m16:21:00.356616 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.fct_order_summary"
+[0m16:21:00.357755 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.int_trucks_enriched
+[0m16:21:00.359005 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.fct_daily_sales
+[0m16:21:00.360339 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.fct_order_summary
+[0m16:21:00.361295 [debug] [Thread-5 (]: Began running node model.tasty_bytes.dim_truck
+[0m16:21:00.362362 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.fct_daily_sales
+[0m16:21:00.363392 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.fct_order_summary
+[0m16:21:00.364126 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.int_order_details_enriched, now model.tasty_bytes.dim_truck)
+[0m16:21:00.365833 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.dim_truck
+[0m16:21:00.378742 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.dim_truck"
+[0m16:21:00.379631 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.dim_truck
+[0m16:21:00.380635 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.dim_truck
+[0m16:21:00.382330 [debug] [Thread-2 (]: Began running node model.tasty_bytes.sem_sales_analytics
+[0m16:21:00.383286 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.int_trucks_enriched, now model.tasty_bytes.sem_sales_analytics)
+[0m16:21:00.383869 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.sem_sales_analytics
+[0m16:21:00.397275 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.sem_sales_analytics"
+[0m16:21:00.398218 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.sem_sales_analytics
+[0m16:21:00.399351 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.sem_sales_analytics
+[0m16:21:00.402506 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:21:00.403147 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.sem_sales_analytics' was properly closed.
+[0m16:21:00.403617 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_daily_sales' was properly closed.
+[0m16:21:00.404066 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_order_summary' was properly closed.
+[0m16:21:00.404509 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.dim_truck' was properly closed.
+[0m16:21:00.407953 [debug] [Dummy-1   ]: Command end result
+[0m16:21:00.446495 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:21:00.449066 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:21:00.458859 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:21:00.460885 [debug] [Dummy-1   ]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 3.8117518, "process_in_blocks": "0", "process_kernel_time": 1.07, "process_mem_max_rss": "501848", "process_out_blocks": "0", "process_user_time": 6.39}
+[0m16:21:00.461620 [debug] [Dummy-1   ]: Command `cli compile` succeeded at 16:21:00.461341 after 3.81 seconds
+[0m16:21:00.462188 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:21:22.467300 | 939eb74f-941f-4a35-a788-6348e8096461 ==============================
+[0m16:21:22.467300 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:21:22.468452 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'warn_error': 'None', 'log_path': '/tmp/dbt/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt ', 'target_path': '/tmp/dbt/target/', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m16:21:22.542268 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:21:22.854541 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:21:22.920463 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:21:23.301800 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:21:23.302493 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:21:23.480477 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:21:23.483346 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:21:23.539647 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:21:23.542822 [info ] [Dummy-1   ]: 
+[0m16:21:23.543565 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:21:23.544159 [info ] [Dummy-1   ]: 
+[0m16:21:23.545025 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:21:23.552959 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:21:23.667831 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:21:23.668586 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:21:23.669115 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:21:24.931699 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 1.262 seconds
+[0m16:21:24.937302 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:21:24.960189 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:21:24.960834 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:21:24.961329 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:21:25.845195 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.884 seconds
+[0m16:21:25.851106 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:21:25.851733 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:21:26.158718 [debug] [ThreadPool]: SQL status: SUCCESS 14 in 0.306 seconds
+[0m16:21:26.161834 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:21:26.162427 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:21:26.405390 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.242 seconds
+[0m16:21:26.420190 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_countries
+[0m16:21:26.421044 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_customers
+[0m16:21:26.421807 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_franchises
+[0m16:21:26.422590 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_locations
+[0m16:21:26.423653 [info ] [Thread-2 (]: 1 of 8 START sql view model PROD.stg_countries ................................. [RUN]
+[0m16:21:26.424692 [info ] [Thread-3 (]: 2 of 8 START sql view model PROD.stg_customers ................................. [RUN]
+[0m16:21:26.425662 [info ] [Thread-4 (]: 3 of 8 START sql view model PROD.stg_franchises ................................ [RUN]
+[0m16:21:26.426614 [info ] [Thread-5 (]: 4 of 8 START sql view model PROD.stg_locations ................................. [RUN]
+[0m16:21:26.427462 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.stg_countries)
+[0m16:21:26.428253 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_customers'
+[0m16:21:26.429098 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_franchises'
+[0m16:21:26.429827 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tasty_bytes.stg_locations'
+[0m16:21:26.430453 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_countries
+[0m16:21:26.431045 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_customers
+[0m16:21:26.431615 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_franchises
+[0m16:21:26.432186 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_locations
+[0m16:21:26.451443 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_countries"
+[0m16:21:26.463229 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_customers"
+[0m16:21:26.474927 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_franchises"
+[0m16:21:26.488299 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_locations"
+[0m16:21:26.489689 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_countries
+[0m16:21:26.490539 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_customers
+[0m16:21:26.502963 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_franchises
+[0m16:21:26.503588 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_locations
+[0m16:21:26.586017 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.stg_countries"
+[0m16:21:26.589508 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.stg_customers"
+[0m16:21:26.601004 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.stg_franchises"
+[0m16:21:26.613776 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.stg_locations"
+[0m16:21:26.616046 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.stg_countries"
+[0m16:21:26.617774 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.stg_customers"
+[0m16:21:26.619378 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.stg_franchises"
+[0m16:21:26.620174 [debug] [Thread-2 (]: On model.tasty_bytes.stg_countries: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_countries"} */
+create or replace   view LARSR_DB.PROD.stg_countries
+  
+   as (
+    select
+    COUNTRY_ID as country_id,
+    COUNTRY as country_name,
+    ISO_CURRENCY as iso_currency,
+    ISO_COUNTRY as iso_country,
+    CITY_ID as city_id,
+    CITY as city_name,
+    TRY_TO_NUMBER(CITY_POPULATION) as city_population
+from LARSR_DB.RAW.country
+  );
+[0m16:21:26.621407 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.stg_locations"
+[0m16:21:26.622085 [debug] [Thread-3 (]: On model.tasty_bytes.stg_customers: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_customers"} */
+create or replace   view LARSR_DB.PROD.stg_customers
+  
+   as (
+    select
+    CUSTOMER_ID as customer_id,
+    FIRST_NAME as first_name,
+    LAST_NAME as last_name,
+    CITY as city,
+    COUNTRY as country,
+    POSTAL_CODE as postal_code,
+    PREFERRED_LANGUAGE as preferred_language,
+    GENDER as gender,
+    FAVOURITE_BRAND as favourite_brand,
+    MARITAL_STATUS as marital_status,
+    CHILDREN_COUNT as children_count,
+    SIGN_UP_DATE as sign_up_date,
+    BIRTHDAY_DATE as birthday_date,
+    E_MAIL as email,
+    PHONE_NUMBER as phone_number
+from LARSR_DB.RAW.customer_loyalty
+  );
+[0m16:21:26.622773 [debug] [Thread-4 (]: On model.tasty_bytes.stg_franchises: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_franchises"} */
+create or replace   view LARSR_DB.PROD.stg_franchises
+  
+   as (
+    select
+    FRANCHISE_ID as franchise_id,
+    FIRST_NAME as first_name,
+    LAST_NAME as last_name,
+    CITY as city,
+    COUNTRY as country,
+    E_MAIL as email,
+    PHONE_NUMBER as phone_number
+from LARSR_DB.RAW.franchise
+qualify row_number() over (partition by FRANCHISE_ID order by FIRST_NAME) = 1
+  );
+[0m16:21:26.623516 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:21:26.624138 [debug] [Thread-5 (]: On model.tasty_bytes.stg_locations: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_locations"} */
+create or replace   view LARSR_DB.PROD.stg_locations
+  
+   as (
+    select
+    LOCATION_ID as location_id,
+    PLACEKEY as placekey,
+    LOCATION as location_name,
+    CITY as city,
+    REGION as region,
+    ISO_COUNTRY_CODE as iso_country_code,
+    COUNTRY as country
+from LARSR_DB.RAW.location
+  );
+[0m16:21:26.624727 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:21:26.625327 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:21:26.626067 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:21:28.005325 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.380 seconds
+[0m16:21:28.041574 [info ] [Thread-4 (]: 3 of 8 OK created sql view model PROD.stg_franchises ........................... [[32mSUCCESS 1[0m in 1.61s]
+[0m16:21:28.042602 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_franchises
+[0m16:21:28.043853 [debug] [Thread-4 (]: Began running node model.tasty_bytes.stg_menu
+[0m16:21:28.044942 [info ] [Thread-4 (]: 5 of 8 START sql view model PROD.stg_menu ...................................... [RUN]
+[0m16:21:28.045705 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_franchises, now model.tasty_bytes.stg_menu)
+[0m16:21:28.046272 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.stg_menu
+[0m16:21:28.057625 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.stg_menu"
+[0m16:21:28.058600 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.stg_menu
+[0m16:21:28.071355 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.stg_menu"
+[0m16:21:28.073098 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.stg_menu"
+[0m16:21:28.073750 [debug] [Thread-4 (]: On model.tasty_bytes.stg_menu: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_menu"} */
+create or replace   view LARSR_DB.PROD.stg_menu
+  
+   as (
+    select
+    MENU_ID as menu_id,
+    MENU_TYPE_ID as menu_type_id,
+    MENU_TYPE as menu_type,
+    TRUCK_BRAND_NAME as truck_brand_name,
+    MENU_ITEM_ID as menu_item_id,
+    MENU_ITEM_NAME as menu_item_name,
+    ITEM_CATEGORY as item_category,
+    ITEM_SUBCATEGORY as item_subcategory,
+    COST_OF_GOODS_USD as cost_of_goods_usd,
+    SALE_PRICE_USD as sale_price_usd
+from LARSR_DB.RAW.menu
+  );
+[0m16:21:28.074318 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:21:28.177651 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.554 seconds
+[0m16:21:28.182114 [info ] [Thread-2 (]: 1 of 8 OK created sql view model PROD.stg_countries ............................ [[32mSUCCESS 1[0m in 1.75s]
+[0m16:21:28.183150 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_countries
+[0m16:21:28.184448 [debug] [Thread-2 (]: Began running node model.tasty_bytes.stg_order_details
+[0m16:21:28.185544 [info ] [Thread-2 (]: 6 of 8 START sql view model PROD.stg_order_details ............................. [RUN]
+[0m16:21:28.186308 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_countries, now model.tasty_bytes.stg_order_details)
+[0m16:21:28.186878 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.stg_order_details
+[0m16:21:28.198501 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.stg_order_details"
+[0m16:21:28.199462 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.stg_order_details
+[0m16:21:28.212178 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.stg_order_details"
+[0m16:21:28.213865 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.stg_order_details"
+[0m16:21:28.214514 [debug] [Thread-2 (]: On model.tasty_bytes.stg_order_details: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_order_details"} */
+create or replace   view LARSR_DB.PROD.stg_order_details
+  
+   as (
+    select
+    ORDER_DETAIL_ID as order_detail_id,
+    ORDER_ID as order_id,
+    MENU_ITEM_ID as menu_item_id,
+    DISCOUNT_ID as discount_id,
+    LINE_NUMBER as line_number,
+    QUANTITY as quantity,
+    UNIT_PRICE as unit_price,
+    PRICE as price,
+    TRY_TO_DECIMAL(ORDER_ITEM_DISCOUNT_AMOUNT, 38, 4) as order_item_discount_amount
+from LARSR_DB.RAW.order_detail
+  );
+[0m16:21:28.215138 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:21:28.258579 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.632 seconds
+[0m16:21:28.262823 [info ] [Thread-5 (]: 4 of 8 OK created sql view model PROD.stg_locations ............................ [[32mSUCCESS 1[0m in 1.83s]
+[0m16:21:28.263813 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_locations
+[0m16:21:28.264962 [debug] [Thread-5 (]: Began running node model.tasty_bytes.stg_orders
+[0m16:21:28.266019 [info ] [Thread-5 (]: 7 of 8 START sql view model PROD.stg_orders .................................... [RUN]
+[0m16:21:28.266774 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_locations, now model.tasty_bytes.stg_orders)
+[0m16:21:28.267366 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.stg_orders
+[0m16:21:28.278679 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.stg_orders"
+[0m16:21:28.279581 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.stg_orders
+[0m16:21:28.292065 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.stg_orders"
+[0m16:21:28.294222 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.stg_orders"
+[0m16:21:28.295473 [debug] [Thread-5 (]: On model.tasty_bytes.stg_orders: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_orders"} */
+create or replace   view LARSR_DB.PROD.stg_orders
+  
+   as (
+    select
+    ORDER_ID as order_id,
+    TRUCK_ID as truck_id,
+    LOCATION_ID::NUMBER(38,0) as location_id,
+    CUSTOMER_ID as customer_id,
+    DISCOUNT_ID as discount_id,
+    SHIFT_ID as shift_id,
+    SHIFT_START_TIME as shift_start_time,
+    SHIFT_END_TIME as shift_end_time,
+    ORDER_CHANNEL as order_channel,
+    ORDER_TS as order_ts,
+    ORDER_TS::DATE as order_date,
+    TRY_TO_TIMESTAMP(SERVED_TS) as served_ts,
+    ORDER_CURRENCY as order_currency,
+    ORDER_AMOUNT as order_amount,
+    TRY_TO_DECIMAL(ORDER_TAX_AMOUNT, 38, 4) as order_tax_amount,
+    TRY_TO_DECIMAL(ORDER_DISCOUNT_AMOUNT, 38, 4) as order_discount_amount,
+    ORDER_TOTAL as order_total
+from LARSR_DB.RAW.order_header
+  );
+[0m16:21:28.296715 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:21:28.308974 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.684 seconds
+[0m16:21:28.312914 [info ] [Thread-3 (]: 2 of 8 OK created sql view model PROD.stg_customers ............................ [[32mSUCCESS 1[0m in 1.88s]
+[0m16:21:28.313865 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_customers
+[0m16:21:28.314994 [debug] [Thread-3 (]: Began running node model.tasty_bytes.stg_trucks
+[0m16:21:28.316097 [info ] [Thread-3 (]: 8 of 8 START sql view model PROD.stg_trucks .................................... [RUN]
+[0m16:21:28.316841 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.stg_customers, now model.tasty_bytes.stg_trucks)
+[0m16:21:28.317398 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.stg_trucks
+[0m16:21:28.328930 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.stg_trucks"
+[0m16:21:28.329801 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.stg_trucks
+[0m16:21:28.342796 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.stg_trucks"
+[0m16:21:28.345580 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.stg_trucks"
+[0m16:21:28.346286 [debug] [Thread-3 (]: On model.tasty_bytes.stg_trucks: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.stg_trucks"} */
+create or replace   view LARSR_DB.PROD.stg_trucks
+  
+   as (
+    select
+    TRUCK_ID as truck_id,
+    MENU_TYPE_ID as menu_type_id,
+    PRIMARY_CITY as primary_city,
+    REGION as region,
+    ISO_REGION as iso_region,
+    COUNTRY as country,
+    ISO_COUNTRY_CODE as iso_country_code,
+    FRANCHISE_FLAG as franchise_flag,
+    YEAR as truck_year,
+    MAKE as make,
+    MODEL as model,
+    EV_FLAG as ev_flag,
+    FRANCHISE_ID as franchise_id,
+    TRUCK_OPENING_DATE as truck_opening_date
+from LARSR_DB.RAW.truck
+  );
+[0m16:21:28.346869 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:21:29.680588 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.606 seconds
+[0m16:21:29.684636 [info ] [Thread-4 (]: 5 of 8 OK created sql view model PROD.stg_menu ................................. [[32mSUCCESS 1[0m in 1.64s]
+[0m16:21:29.685615 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.stg_menu
+[0m16:21:29.871341 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.656 seconds
+[0m16:21:29.875289 [info ] [Thread-2 (]: 6 of 8 OK created sql view model PROD.stg_order_details ........................ [[32mSUCCESS 1[0m in 1.69s]
+[0m16:21:29.876278 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.stg_order_details
+[0m16:21:29.891593 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.595 seconds
+[0m16:21:29.895555 [info ] [Thread-5 (]: 7 of 8 OK created sql view model PROD.stg_orders ............................... [[32mSUCCESS 1[0m in 1.63s]
+[0m16:21:29.896483 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.stg_orders
+[0m16:21:29.919161 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.572 seconds
+[0m16:21:29.923098 [info ] [Thread-3 (]: 8 of 8 OK created sql view model PROD.stg_trucks ............................... [[32mSUCCESS 1[0m in 1.61s]
+[0m16:21:29.924055 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.stg_trucks
+[0m16:21:29.927926 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:21:29.928854 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_order_details' was properly closed.
+[0m16:21:29.929330 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_trucks' was properly closed.
+[0m16:21:29.929763 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_menu' was properly closed.
+[0m16:21:29.930190 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.stg_orders' was properly closed.
+[0m16:21:29.930975 [info ] [Dummy-1   ]: 
+[0m16:21:29.931651 [info ] [Dummy-1   ]: Finished running 8 view models in 0 hours 0 minutes and 6.39 seconds (6.39s).
+[0m16:21:29.933810 [debug] [Dummy-1   ]: Command end result
+[0m16:21:30.116043 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:21:30.118763 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:21:30.127424 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:21:30.128160 [info ] [Dummy-1   ]: 
+[0m16:21:30.129102 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:21:30.129780 [info ] [Dummy-1   ]: 
+[0m16:21:30.130439 [info ] [Dummy-1   ]: Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[0m16:21:30.132391 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 7.7650995, "process_in_blocks": "0", "process_kernel_time": 1.31, "process_mem_max_rss": "460136", "process_out_blocks": "0", "process_user_time": 5.67}
+[0m16:21:30.133096 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:21:30.132823 after 7.77 seconds
+[0m16:21:30.133657 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:21:48.959174 | 08682714-5a65-41b6-88ff-0d966657bd94 ==============================
+[0m16:21:48.959174 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:21:48.960244 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/dbt/', 'version_check': 'True', 'debug': 'False', 'log_path': '/tmp/dbt/logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt ', 'target_path': '/tmp/dbt/target/', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m16:21:49.032683 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:21:49.341954 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:21:49.404667 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:21:49.784487 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:21:49.785136 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:21:49.962421 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:21:49.965302 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:21:50.021092 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:21:50.023870 [info ] [Dummy-1   ]: 
+[0m16:21:50.024566 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:21:50.025151 [info ] [Dummy-1   ]: 
+[0m16:21:50.026009 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:21:50.033359 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:21:50.148425 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:21:50.149113 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:21:50.149615 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:21:50.791386 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.642 seconds
+[0m16:21:50.796954 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:21:50.819711 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:21:50.820359 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:21:50.820843 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:21:51.541967 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.721 seconds
+[0m16:21:51.547850 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:21:51.548582 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:21:51.700752 [debug] [ThreadPool]: SQL status: SUCCESS 14 in 0.151 seconds
+[0m16:21:51.703841 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:21:51.704437 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:21:51.820488 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.115 seconds
+[0m16:21:51.834601 [debug] [Thread-2 (]: Began running node model.tasty_bytes.int_order_details_enriched
+[0m16:21:51.836062 [debug] [Thread-3 (]: Began running node model.tasty_bytes.int_trucks_enriched
+[0m16:21:51.837205 [info ] [Thread-2 (]: 1 of 2 START sql dynamic_table model PROD.int_order_details_enriched ........... [RUN]
+[0m16:21:51.838248 [info ] [Thread-3 (]: 2 of 2 START sql dynamic_table model PROD.int_trucks_enriched .................. [RUN]
+[0m16:21:51.839217 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.int_order_details_enriched)
+[0m16:21:51.840023 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.int_trucks_enriched'
+[0m16:21:51.840636 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.int_order_details_enriched
+[0m16:21:51.841211 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.int_trucks_enriched
+[0m16:21:51.860830 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:21:51.872834 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:21:51.874047 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.int_order_details_enriched
+[0m16:21:51.874796 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.int_trucks_enriched
+[0m16:21:51.949386 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.int_order_details_enriched"
+[0m16:21:51.954200 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.int_trucks_enriched"
+[0m16:21:51.954973 [debug] [Thread-2 (]: On model.tasty_bytes.int_order_details_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_order_details_enriched"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:21:51.955665 [debug] [Thread-3 (]: On model.tasty_bytes.int_trucks_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_trucks_enriched"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:21:51.956283 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:21:51.956853 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:21:52.684357 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.728 seconds
+[0m16:21:52.685151 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.int_order_details_enriched"
+[0m16:21:52.686175 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.729 seconds
+[0m16:21:52.686892 [debug] [Thread-2 (]: On model.tasty_bytes.int_order_details_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_order_details_enriched"} */
+show dynamic tables
+            like 'INT_ORDER_DETAILS_ENRICHED'
+            in schema LARSR_DB.PROD
+        ;
+[0m16:21:52.687596 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.int_trucks_enriched"
+[0m16:21:52.688837 [debug] [Thread-3 (]: On model.tasty_bytes.int_trucks_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_trucks_enriched"} */
+show dynamic tables
+            like 'INT_TRUCKS_ENRICHED'
+            in schema LARSR_DB.PROD
+        ;
+[0m16:21:52.859455 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.170 seconds
+[0m16:21:52.860218 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.int_trucks_enriched"
+[0m16:21:52.860827 [debug] [Thread-3 (]: On model.tasty_bytes.int_trucks_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_trucks_enriched"} */
+select
+            "name",
+            "schema_name",
+            "database_name",
+            "text",
+            "target_lag",
+            "warehouse",
+            "refresh_mode"
+        from table(result_scan(last_query_id()))
+[0m16:21:52.866283 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.178 seconds
+[0m16:21:52.867026 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.int_order_details_enriched"
+[0m16:21:52.867636 [debug] [Thread-2 (]: On model.tasty_bytes.int_order_details_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_order_details_enriched"} */
+select
+            "name",
+            "schema_name",
+            "database_name",
+            "text",
+            "target_lag",
+            "warehouse",
+            "refresh_mode"
+        from table(result_scan(last_query_id()))
+[0m16:21:53.269080 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.401 seconds
+[0m16:21:53.272312 [warn ] [Thread-2 (]: No configuration changes were identified on: `LARSR_DB.PROD.int_order_details_enriched`. Continuing.
+[0m16:21:53.286886 [info ] [Thread-2 (]: 1 of 2 OK created sql dynamic_table model PROD.int_order_details_enriched ...... [[32mskip LARSR_DB.PROD.int_order_details_enriched[0m in 1.45s]
+[0m16:21:53.287933 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.int_order_details_enriched
+[0m16:21:53.297421 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.436 seconds
+[0m16:21:53.300184 [warn ] [Thread-3 (]: No configuration changes were identified on: `LARSR_DB.PROD.int_trucks_enriched`. Continuing.
+[0m16:21:53.303405 [info ] [Thread-3 (]: 2 of 2 OK created sql dynamic_table model PROD.int_trucks_enriched ............. [[32mskip LARSR_DB.PROD.int_trucks_enriched[0m in 1.46s]
+[0m16:21:53.304335 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.int_trucks_enriched
+[0m16:21:53.307748 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:21:53.308291 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.int_order_details_enriched' was properly closed.
+[0m16:21:53.308886 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.int_trucks_enriched' was properly closed.
+[0m16:21:53.309606 [info ] [Dummy-1   ]: 
+[0m16:21:53.310232 [info ] [Dummy-1   ]: Finished running 2 dynamic table models in 0 hours 0 minutes and 3.28 seconds (3.28s).
+[0m16:21:53.311411 [debug] [Dummy-1   ]: Command end result
+[0m16:21:53.351632 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:21:53.354331 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:21:53.362526 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:21:53.363267 [info ] [Dummy-1   ]: 
+[0m16:21:53.364068 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:21:53.364667 [info ] [Dummy-1   ]: 
+[0m16:21:53.365291 [info ] [Dummy-1   ]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m16:21:53.367159 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 4.506551, "process_in_blocks": "0", "process_kernel_time": 1.1, "process_mem_max_rss": "452044", "process_out_blocks": "0", "process_user_time": 5.47}
+[0m16:21:53.367851 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:21:53.367580 after 4.51 seconds
+[0m16:21:53.368481 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:22:18.333931 | 2ca297a5-67b0-42d8-b311-684bb466a1a0 ==============================
+[0m16:22:18.333931 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:22:18.334990 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/tmp/dbt/', 'log_path': '/tmp/dbt/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt ', 'introspect': 'True', 'log_format': 'default', 'target_path': '/tmp/dbt/target/', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m16:22:18.407206 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:22:18.713916 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:22:18.777110 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:22:19.157873 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:22:19.158648 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:22:19.334711 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:22:19.337451 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:22:19.393146 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:22:19.396187 [info ] [Dummy-1   ]: 
+[0m16:22:19.396914 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:22:19.397507 [info ] [Dummy-1   ]: 
+[0m16:22:19.398449 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:22:19.406167 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:22:19.521714 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:22:19.522383 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:22:19.522891 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:22:20.130089 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.607 seconds
+[0m16:22:20.135725 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:22:20.158510 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:22:20.159198 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:22:20.159699 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:22:20.840318 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.680 seconds
+[0m16:22:20.846135 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:22:20.846743 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:22:20.962781 [debug] [ThreadPool]: SQL status: SUCCESS 14 in 0.115 seconds
+[0m16:22:20.965959 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:22:20.966571 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:22:21.094473 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.127 seconds
+[0m16:22:21.108973 [debug] [Thread-2 (]: Began running node model.tasty_bytes.dim_customer
+[0m16:22:21.109848 [debug] [Thread-3 (]: Began running node model.tasty_bytes.dim_location
+[0m16:22:21.110590 [debug] [Thread-4 (]: Began running node model.tasty_bytes.dim_menu
+[0m16:22:21.111419 [debug] [Thread-5 (]: Began running node model.tasty_bytes.dim_truck
+[0m16:22:21.112451 [info ] [Thread-2 (]: 1 of 6 START sql table model PROD.dim_customer ................................. [RUN]
+[0m16:22:21.113485 [info ] [Thread-3 (]: 2 of 6 START sql table model PROD.dim_location ................................. [RUN]
+[0m16:22:21.114442 [info ] [Thread-4 (]: 3 of 6 START sql table model PROD.dim_menu ..................................... [RUN]
+[0m16:22:21.115424 [info ] [Thread-5 (]: 4 of 6 START sql table model PROD.dim_truck .................................... [RUN]
+[0m16:22:21.116287 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.dim_customer)
+[0m16:22:21.117063 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.dim_location'
+[0m16:22:21.117808 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tasty_bytes.dim_menu'
+[0m16:22:21.118637 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tasty_bytes.dim_truck'
+[0m16:22:21.119299 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.dim_customer
+[0m16:22:21.119871 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.dim_location
+[0m16:22:21.120415 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.dim_menu
+[0m16:22:21.120972 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.dim_truck
+[0m16:22:21.139936 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.dim_customer"
+[0m16:22:21.151849 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.dim_location"
+[0m16:22:21.163342 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.dim_menu"
+[0m16:22:21.176784 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.dim_truck"
+[0m16:22:21.178025 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.dim_customer
+[0m16:22:21.179017 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.dim_location
+[0m16:22:21.179907 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.dim_menu
+[0m16:22:21.191736 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.dim_truck
+[0m16:22:21.243701 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.dim_customer"
+[0m16:22:21.246477 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.dim_location"
+[0m16:22:21.257850 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.dim_menu"
+[0m16:22:21.270346 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.dim_truck"
+[0m16:22:21.272387 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.dim_customer"
+[0m16:22:21.273810 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.dim_location"
+[0m16:22:21.275556 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.dim_menu"
+[0m16:22:21.276181 [debug] [Thread-2 (]: On model.tasty_bytes.dim_customer: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_customer"} */
+create or replace transient table LARSR_DB.PROD.dim_customer
+         as
+        (select
+    customer_id,
+    first_name,
+    last_name,
+    city,
+    country,
+    postal_code,
+    preferred_language,
+    gender,
+    favourite_brand,
+    marital_status,
+    children_count,
+    sign_up_date,
+    birthday_date
+from LARSR_DB.PROD.stg_customers
+        );
+[0m16:22:21.277750 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.dim_truck"
+[0m16:22:21.278451 [debug] [Thread-3 (]: On model.tasty_bytes.dim_location: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_location"} */
+create or replace transient table LARSR_DB.PROD.dim_location
+         as
+        (select
+    location_id,
+    placekey,
+    location_name,
+    city,
+    region,
+    iso_country_code,
+    country
+from LARSR_DB.PROD.stg_locations
+        );
+[0m16:22:21.279178 [debug] [Thread-4 (]: On model.tasty_bytes.dim_menu: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_menu"} */
+create or replace transient table LARSR_DB.PROD.dim_menu
+         as
+        (select
+    menu_id,
+    menu_type_id,
+    menu_type,
+    truck_brand_name,
+    menu_item_id,
+    menu_item_name,
+    item_category,
+    item_subcategory,
+    cost_of_goods_usd,
+    sale_price_usd,
+    sale_price_usd - cost_of_goods_usd as unit_margin_usd
+from LARSR_DB.PROD.stg_menu
+        );
+[0m16:22:21.279800 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:22:21.280415 [debug] [Thread-5 (]: On model.tasty_bytes.dim_truck: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_truck"} */
+create or replace transient table LARSR_DB.PROD.dim_truck
+         as
+        (select
+    truck_id,
+    menu_type_id,
+    primary_city,
+    region,
+    country,
+    iso_country_code,
+    franchise_flag,
+    truck_year,
+    make,
+    model,
+    ev_flag,
+    truck_opening_date,
+    franchise_id,
+    franchise_owner,
+    franchise_city,
+    franchise_country
+from LARSR_DB.PROD.int_trucks_enriched
+        );
+[0m16:22:21.281048 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:22:21.281605 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:22:21.282412 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:22:22.819883 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.537 seconds
+[0m16:22:22.855204 [info ] [Thread-5 (]: 4 of 6 OK created sql table model PROD.dim_truck ............................... [[32mSUCCESS 1[0m in 1.73s]
+[0m16:22:22.856227 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.dim_truck
+[0m16:22:22.857682 [debug] [Thread-5 (]: Began running node model.tasty_bytes.fct_daily_sales
+[0m16:22:22.858886 [info ] [Thread-5 (]: 5 of 6 START sql table model PROD.fct_daily_sales .............................. [RUN]
+[0m16:22:22.859680 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_truck, now model.tasty_bytes.fct_daily_sales)
+[0m16:22:22.860253 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.fct_daily_sales
+[0m16:22:22.871814 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.fct_daily_sales"
+[0m16:22:22.872696 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.fct_daily_sales
+[0m16:22:22.885183 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.fct_daily_sales"
+[0m16:22:22.887200 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.fct_daily_sales"
+[0m16:22:22.887954 [debug] [Thread-5 (]: On model.tasty_bytes.fct_daily_sales: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.fct_daily_sales"} */
+create or replace transient table LARSR_DB.PROD.fct_daily_sales
+         as
+        (select
+    o.order_date,
+    o.truck_id,
+    o.location_id,
+    count(distinct o.order_id) as order_count,
+    count(distinct o.customer_id) as unique_customers,
+    sum(od.quantity) as items_sold,
+    sum(od.price) as total_revenue,
+    sum(od.line_cogs) as total_cogs,
+    sum(od.line_gross_profit) as total_gross_profit,
+    avg(o.order_total) as avg_order_value
+from LARSR_DB.PROD.stg_orders o
+inner join LARSR_DB.PROD.int_order_details_enriched od
+    on o.order_id = od.order_id
+group by
+    o.order_date,
+    o.truck_id,
+    o.location_id
+        );
+[0m16:22:22.888647 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:22:22.922009 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.640 seconds
+[0m16:22:22.925942 [info ] [Thread-4 (]: 3 of 6 OK created sql table model PROD.dim_menu ................................ [[32mSUCCESS 1[0m in 1.81s]
+[0m16:22:22.926895 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.dim_menu
+[0m16:22:22.928082 [debug] [Thread-4 (]: Began running node model.tasty_bytes.fct_order_summary
+[0m16:22:22.929265 [info ] [Thread-4 (]: 6 of 6 START sql table model PROD.fct_order_summary ............................ [RUN]
+[0m16:22:22.930037 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_menu, now model.tasty_bytes.fct_order_summary)
+[0m16:22:22.930615 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.fct_order_summary
+[0m16:22:22.942504 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.fct_order_summary"
+[0m16:22:22.944447 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.fct_order_summary
+[0m16:22:22.957066 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.fct_order_summary"
+[0m16:22:22.959518 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.fct_order_summary"
+[0m16:22:22.960282 [debug] [Thread-4 (]: On model.tasty_bytes.fct_order_summary: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.fct_order_summary"} */
+create or replace transient table LARSR_DB.PROD.fct_order_summary
+         as
+        (select
+    o.order_id,
+    o.truck_id,
+    o.location_id,
+    o.customer_id,
+    o.order_date,
+    o.order_ts,
+    o.order_channel,
+    o.order_currency,
+    o.order_amount,
+    o.order_tax_amount,
+    o.order_discount_amount,
+    o.order_total,
+    count(od.order_detail_id) as item_count,
+    sum(od.quantity) as total_quantity,
+    sum(od.line_cogs) as total_cogs,
+    sum(od.line_gross_profit) as total_gross_profit
+from LARSR_DB.PROD.stg_orders o
+inner join LARSR_DB.PROD.int_order_details_enriched od
+    on o.order_id = od.order_id
+group by
+    o.order_id,
+    o.truck_id,
+    o.location_id,
+    o.customer_id,
+    o.order_date,
+    o.order_ts,
+    o.order_channel,
+    o.order_currency,
+    o.order_amount,
+    o.order_tax_amount,
+    o.order_discount_amount,
+    o.order_total
+        );
+[0m16:22:22.960889 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:22:23.125438 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.844 seconds
+[0m16:22:23.135406 [info ] [Thread-3 (]: 2 of 6 OK created sql table model PROD.dim_location ............................ [[32mSUCCESS 1[0m in 2.02s]
+[0m16:22:23.136388 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.dim_location
+[0m16:22:23.607347 [debug] [Thread-5 (]: Snowflake adapter: Snowflake query id: 01c45d3e-030a-4d80-0000-bc3d00d8faf2
+[0m16:22:23.608106 [debug] [Thread-5 (]: Snowflake adapter: Snowflake error: 000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf2: SQL compilation error: error line 10 at position 8
+invalid identifier 'OD.PRICE'
+[0m16:22:23.613361 [debug] [Thread-5 (]: Database Error in model fct_daily_sales (models/marts/fct_daily_sales.sql)
+  000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf2: SQL compilation error: error line 10 at position 8
+  invalid identifier 'OD.PRICE'
+  compiled code at /tmp/dbt/target/run/tasty_bytes/models/marts/fct_daily_sales.sql
+[0m16:22:23.614774 [error] [Thread-5 (]: 5 of 6 ERROR creating sql table model PROD.fct_daily_sales ..................... [[31mERROR[0m in 0.75s]
+[0m16:22:23.615759 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.fct_daily_sales
+[0m16:22:23.617071 [debug] [Thread-8 (]: Marking all children of 'model.tasty_bytes.fct_daily_sales' to be skipped because of status 'error'.  Reason: Database Error in model fct_daily_sales (models/marts/fct_daily_sales.sql)
+  000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf2: SQL compilation error: error line 10 at position 8
+  invalid identifier 'OD.PRICE'
+  compiled code at /tmp/dbt/target/run/tasty_bytes/models/marts/fct_daily_sales.sql.
+[0m16:22:23.626979 [debug] [Thread-4 (]: Snowflake adapter: Snowflake query id: 01c45d3e-030a-4d80-0000-bc3d00d8faf6
+[0m16:22:23.627697 [debug] [Thread-4 (]: Snowflake adapter: Snowflake error: 000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf6: SQL compilation error: error line 19 at position 8
+invalid identifier 'OD.LINE_GROSS_PROFIT'
+[0m16:22:23.632759 [debug] [Thread-4 (]: Database Error in model fct_order_summary (models/marts/fct_order_summary.sql)
+  000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf6: SQL compilation error: error line 19 at position 8
+  invalid identifier 'OD.LINE_GROSS_PROFIT'
+  compiled code at /tmp/dbt/target/run/tasty_bytes/models/marts/fct_order_summary.sql
+[0m16:22:23.634167 [error] [Thread-4 (]: 6 of 6 ERROR creating sql table model PROD.fct_order_summary ................... [[31mERROR[0m in 0.70s]
+[0m16:22:23.635122 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.fct_order_summary
+[0m16:22:23.636312 [debug] [Thread-8 (]: Marking all children of 'model.tasty_bytes.fct_order_summary' to be skipped because of status 'error'.  Reason: Database Error in model fct_order_summary (models/marts/fct_order_summary.sql)
+  000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf6: SQL compilation error: error line 19 at position 8
+  invalid identifier 'OD.LINE_GROSS_PROFIT'
+  compiled code at /tmp/dbt/target/run/tasty_bytes/models/marts/fct_order_summary.sql.
+[0m16:22:24.108926 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 2.829 seconds
+[0m16:22:24.112860 [info ] [Thread-2 (]: 1 of 6 OK created sql table model PROD.dim_customer ............................ [[32mSUCCESS 1[0m in 3.00s]
+[0m16:22:24.113826 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.dim_customer
+[0m16:22:24.117648 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:22:24.118607 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.dim_customer' was properly closed.
+[0m16:22:24.119226 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.dim_location' was properly closed.
+[0m16:22:24.119738 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_order_summary' was properly closed.
+[0m16:22:24.120183 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_daily_sales' was properly closed.
+[0m16:22:24.120920 [info ] [Dummy-1   ]: 
+[0m16:22:24.121592 [info ] [Dummy-1   ]: Finished running 6 table models in 0 hours 0 minutes and 4.72 seconds (4.72s).
+[0m16:22:24.123502 [debug] [Dummy-1   ]: Command end result
+[0m16:22:24.163557 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:22:24.166156 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:22:24.174630 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:22:24.175380 [info ] [Dummy-1   ]: 
+[0m16:22:24.176200 [info ] [Dummy-1   ]: [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m16:22:24.176834 [info ] [Dummy-1   ]: 
+[0m16:22:24.177543 [error] [Dummy-1   ]:   Database Error in model fct_daily_sales (models/marts/fct_daily_sales.sql)
+  000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf2: SQL compilation error: error line 10 at position 8
+  invalid identifier 'OD.PRICE'
+  compiled code at /tmp/dbt/target/run/tasty_bytes/models/marts/fct_daily_sales.sql
+[0m16:22:24.178149 [info ] [Dummy-1   ]: 
+[0m16:22:24.178975 [error] [Dummy-1   ]:   Database Error in model fct_order_summary (models/marts/fct_order_summary.sql)
+  000904 (42000): 01c45d3e-030a-4d80-0000-bc3d00d8faf6: SQL compilation error: error line 19 at position 8
+  invalid identifier 'OD.LINE_GROSS_PROFIT'
+  compiled code at /tmp/dbt/target/run/tasty_bytes/models/marts/fct_order_summary.sql
+[0m16:22:24.179599 [info ] [Dummy-1   ]: 
+[0m16:22:24.180228 [info ] [Dummy-1   ]: Done. PASS=4 WARN=0 ERROR=2 SKIP=0 TOTAL=6
+[0m16:22:24.182104 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 5.947646, "process_in_blocks": "0", "process_kernel_time": 1.3, "process_mem_max_rss": "454080", "process_out_blocks": "0", "process_user_time": 5.42}
+[0m16:22:24.182799 [debug] [Dummy-1   ]: Command `cli run` failed at 16:22:24.182527 after 5.95 seconds
+[0m16:22:24.183413 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:23:15.343822 | eed6ea9a-a575-44ab-9e5d-b123d6fc0e7b ==============================
+[0m16:23:15.343822 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:23:15.344914 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/tmp/dbt/', 'log_path': '/tmp/dbt/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt ', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': '/tmp/dbt/target/', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m16:23:15.417632 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:23:15.727323 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:23:15.791223 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:23:16.166417 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:23:16.167108 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:23:16.342174 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:23:16.345021 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:23:16.399005 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:23:16.401794 [info ] [Dummy-1   ]: 
+[0m16:23:16.402498 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:23:16.403086 [info ] [Dummy-1   ]: 
+[0m16:23:16.403942 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:23:16.411316 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:23:16.526920 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:23:16.527677 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:23:16.528229 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:23:17.160395 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.632 seconds
+[0m16:23:17.166071 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:23:17.188902 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:23:17.189550 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:23:17.190046 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:23:17.836828 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.647 seconds
+[0m16:23:17.842805 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:23:17.843455 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:23:17.979041 [debug] [ThreadPool]: SQL status: SUCCESS 12 in 0.135 seconds
+[0m16:23:17.982080 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:23:17.982681 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:23:18.104173 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.121 seconds
+[0m16:23:18.117419 [debug] [Thread-2 (]: Began running node model.tasty_bytes.int_order_details_enriched
+[0m16:23:18.118814 [debug] [Thread-3 (]: Began running node model.tasty_bytes.int_trucks_enriched
+[0m16:23:18.120053 [info ] [Thread-2 (]: 1 of 2 START sql dynamic_table model PROD.int_order_details_enriched ........... [RUN]
+[0m16:23:18.121094 [info ] [Thread-3 (]: 2 of 2 START sql dynamic_table model PROD.int_trucks_enriched .................. [RUN]
+[0m16:23:18.121958 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.int_order_details_enriched)
+[0m16:23:18.122780 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.int_trucks_enriched'
+[0m16:23:18.123469 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.int_order_details_enriched
+[0m16:23:18.124056 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.int_trucks_enriched
+[0m16:23:18.143583 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:23:18.155447 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:23:18.156707 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.int_order_details_enriched
+[0m16:23:18.168873 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.int_trucks_enriched
+[0m16:23:18.215542 [debug] [Thread-2 (]: Applying CREATE to: LARSR_DB.PROD.int_order_details_enriched
+[0m16:23:18.216347 [debug] [Thread-3 (]: Applying CREATE to: LARSR_DB.PROD.int_trucks_enriched
+[0m16:23:18.231322 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.int_order_details_enriched"
+[0m16:23:18.232825 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.int_trucks_enriched"
+[0m16:23:18.235249 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.int_order_details_enriched"
+[0m16:23:18.236084 [debug] [Thread-2 (]: On model.tasty_bytes.int_order_details_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_order_details_enriched"} */
+create dynamic table LARSR_DB.PROD.int_order_details_enriched
+        target_lag = '1 hour'
+        warehouse = LARSR_WH
+        refresh_mode = AUTO
+
+        initialize = ON_CREATE
+
+        as (
+            select
+    od.order_detail_id,
+    od.order_id,
+    od.menu_item_id,
+    od.line_number,
+    od.quantity,
+    od.unit_price,
+    od.price,
+    od.order_item_discount_amount,
+    m.menu_item_name,
+    m.menu_type,
+    m.truck_brand_name,
+    m.item_category,
+    m.item_subcategory,
+    m.cost_of_goods_usd,
+    m.sale_price_usd,
+    od.quantity * m.cost_of_goods_usd as line_cogs,
+    od.price - (od.quantity * m.cost_of_goods_usd) as line_gross_profit
+from LARSR_DB.PROD.stg_order_details od
+inner join LARSR_DB.PROD.stg_menu m
+    on od.menu_item_id = m.menu_item_id
+        )
+[0m16:23:18.237788 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.int_trucks_enriched"
+[0m16:23:18.238479 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:23:18.239239 [debug] [Thread-3 (]: On model.tasty_bytes.int_trucks_enriched: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.int_trucks_enriched"} */
+create dynamic table LARSR_DB.PROD.int_trucks_enriched
+        target_lag = '1 hour'
+        warehouse = LARSR_WH
+        refresh_mode = AUTO
+
+        initialize = ON_CREATE
+
+        as (
+            select
+    t.truck_id,
+    t.menu_type_id,
+    t.primary_city,
+    t.region,
+    t.country,
+    t.iso_country_code,
+    t.franchise_flag,
+    t.truck_year,
+    t.make,
+    t.model,
+    t.ev_flag,
+    t.truck_opening_date,
+    f.franchise_id,
+    f.first_name || ' ' || f.last_name as franchise_owner,
+    f.city as franchise_city,
+    f.country as franchise_country
+from LARSR_DB.PROD.stg_trucks t
+left join LARSR_DB.PROD.stg_franchises f
+    on t.franchise_id = f.franchise_id
+        )
+[0m16:23:18.240064 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:23:21.053176 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.813 seconds
+[0m16:23:21.085118 [info ] [Thread-3 (]: 2 of 2 OK created sql dynamic_table model PROD.int_trucks_enriched ............. [[32mSUCCESS 1[0m in 2.96s]
+[0m16:23:21.086143 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.int_trucks_enriched
+[0m16:39:42.510794 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 984.272 seconds
+[0m16:39:42.516052 [info ] [Thread-2 (]: 1 of 2 OK created sql dynamic_table model PROD.int_order_details_enriched ...... [[32mSUCCESS 1[0m in 984.39s]
+[0m16:39:42.517039 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.int_order_details_enriched
+[0m16:39:42.521134 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:39:42.521739 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.int_order_details_enriched' was properly closed.
+[0m16:39:42.522232 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.int_trucks_enriched' was properly closed.
+[0m16:39:42.523001 [info ] [Dummy-1   ]: 
+[0m16:39:42.523697 [info ] [Dummy-1   ]: Finished running 2 dynamic table models in 0 hours 16 minutes and 26.12 seconds (986.12s).
+[0m16:39:42.524890 [debug] [Dummy-1   ]: Command end result
+[0m16:39:42.565005 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:39:42.567835 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:39:42.575981 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:39:42.576674 [info ] [Dummy-1   ]: 
+[0m16:39:42.577469 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:39:42.578064 [info ] [Dummy-1   ]: 
+[0m16:39:42.578847 [info ] [Dummy-1   ]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m16:39:42.581661 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 987.3375, "process_in_blocks": "0", "process_kernel_time": 1.18, "process_mem_max_rss": "460116", "process_out_blocks": "0", "process_user_time": 10.56}
+[0m16:39:42.582350 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:39:42.582081 after 987.34 seconds
+[0m16:39:42.582903 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:40:09.848126 | cd6252eb-ba88-4faa-bd8c-06d4949ba363 ==============================
+[0m16:40:09.848126 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:40:09.849331 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/tmp/dbt/logs', 'profiles_dir': '/tmp/dbt/', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt ', 'target_path': '/tmp/dbt/target/', 'introspect': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m16:40:09.923052 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:40:10.239170 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:40:10.300421 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:40:10.684257 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:40:10.684940 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:40:10.865583 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:40:10.868564 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:40:10.928152 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:40:10.931308 [info ] [Dummy-1   ]: 
+[0m16:40:10.932028 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:40:10.932625 [info ] [Dummy-1   ]: 
+[0m16:40:10.933509 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:40:10.941557 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:40:11.057678 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:40:11.058428 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:40:11.059016 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:40:11.918764 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.859 seconds
+[0m16:40:11.924492 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:40:11.947766 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:40:11.948517 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:40:11.949067 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:40:12.667446 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.718 seconds
+[0m16:40:12.673430 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:40:12.674063 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:40:12.811269 [debug] [ThreadPool]: SQL status: SUCCESS 14 in 0.136 seconds
+[0m16:40:12.814354 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:40:12.814968 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:40:13.023380 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.208 seconds
+[0m16:40:13.038017 [debug] [Thread-2 (]: Began running node model.tasty_bytes.dim_customer
+[0m16:40:13.039050 [debug] [Thread-3 (]: Began running node model.tasty_bytes.dim_location
+[0m16:40:13.039882 [debug] [Thread-4 (]: Began running node model.tasty_bytes.dim_menu
+[0m16:40:13.040681 [debug] [Thread-5 (]: Began running node model.tasty_bytes.dim_truck
+[0m16:40:13.041732 [info ] [Thread-2 (]: 1 of 6 START sql table model PROD.dim_customer ................................. [RUN]
+[0m16:40:13.042789 [info ] [Thread-3 (]: 2 of 6 START sql table model PROD.dim_location ................................. [RUN]
+[0m16:40:13.043917 [info ] [Thread-4 (]: 3 of 6 START sql table model PROD.dim_menu ..................................... [RUN]
+[0m16:40:13.044878 [info ] [Thread-5 (]: 4 of 6 START sql table model PROD.dim_truck .................................... [RUN]
+[0m16:40:13.045716 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.dim_customer)
+[0m16:40:13.046505 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.tasty_bytes.dim_location'
+[0m16:40:13.047279 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.tasty_bytes.dim_menu'
+[0m16:40:13.048028 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.tasty_bytes.dim_truck'
+[0m16:40:13.048798 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.dim_customer
+[0m16:40:13.049400 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.dim_location
+[0m16:40:13.049973 [debug] [Thread-4 (]: Began compiling node model.tasty_bytes.dim_menu
+[0m16:40:13.050535 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.dim_truck
+[0m16:40:13.069972 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.dim_customer"
+[0m16:40:13.081686 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.dim_location"
+[0m16:40:13.093462 [debug] [Thread-4 (]: Writing injected SQL for node "model.tasty_bytes.dim_menu"
+[0m16:40:13.106986 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.dim_truck"
+[0m16:40:13.108427 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.dim_customer
+[0m16:40:13.109225 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.dim_location
+[0m16:40:13.110015 [debug] [Thread-4 (]: Began executing node model.tasty_bytes.dim_menu
+[0m16:40:13.121689 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.dim_truck
+[0m16:40:13.177983 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.dim_location"
+[0m16:40:13.178417 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.dim_customer"
+[0m16:40:13.189930 [debug] [Thread-4 (]: Writing runtime sql for node "model.tasty_bytes.dim_menu"
+[0m16:40:13.202660 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.dim_truck"
+[0m16:40:13.204504 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.dim_location"
+[0m16:40:13.206201 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.dim_customer"
+[0m16:40:13.207963 [debug] [Thread-4 (]: Using snowflake connection "model.tasty_bytes.dim_menu"
+[0m16:40:13.208917 [debug] [Thread-3 (]: On model.tasty_bytes.dim_location: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_location"} */
+create or replace transient table LARSR_DB.PROD.dim_location
+         as
+        (select
+    location_id,
+    placekey,
+    location_name,
+    city,
+    region,
+    iso_country_code,
+    country
+from LARSR_DB.PROD.stg_locations
+        );
+[0m16:40:13.210324 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.dim_truck"
+[0m16:40:13.211027 [debug] [Thread-2 (]: On model.tasty_bytes.dim_customer: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_customer"} */
+create or replace transient table LARSR_DB.PROD.dim_customer
+         as
+        (select
+    customer_id,
+    first_name,
+    last_name,
+    city,
+    country,
+    postal_code,
+    preferred_language,
+    gender,
+    favourite_brand,
+    marital_status,
+    children_count,
+    sign_up_date,
+    birthday_date
+from LARSR_DB.PROD.stg_customers
+        );
+[0m16:40:13.211721 [debug] [Thread-4 (]: On model.tasty_bytes.dim_menu: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_menu"} */
+create or replace transient table LARSR_DB.PROD.dim_menu
+         as
+        (select
+    menu_id,
+    menu_type_id,
+    menu_type,
+    truck_brand_name,
+    menu_item_id,
+    menu_item_name,
+    item_category,
+    item_subcategory,
+    cost_of_goods_usd,
+    sale_price_usd,
+    sale_price_usd - cost_of_goods_usd as unit_margin_usd
+from LARSR_DB.PROD.stg_menu
+        );
+[0m16:40:13.212389 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:40:13.213027 [debug] [Thread-5 (]: On model.tasty_bytes.dim_truck: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.dim_truck"} */
+create or replace transient table LARSR_DB.PROD.dim_truck
+         as
+        (select
+    truck_id,
+    menu_type_id,
+    primary_city,
+    region,
+    country,
+    iso_country_code,
+    franchise_flag,
+    truck_year,
+    make,
+    model,
+    ev_flag,
+    truck_opening_date,
+    franchise_id,
+    franchise_owner,
+    franchise_city,
+    franchise_country
+from LARSR_DB.PROD.int_trucks_enriched
+        );
+[0m16:40:13.213646 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:40:13.214194 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:40:13.215019 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:40:15.026812 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 1.812 seconds
+[0m16:40:15.062168 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.850 seconds
+[0m16:40:15.063502 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.849 seconds
+[0m16:40:15.072194 [info ] [Thread-5 (]: 4 of 6 OK created sql table model PROD.dim_truck ............................... [[32mSUCCESS 1[0m in 2.01s]
+[0m16:40:15.073283 [info ] [Thread-3 (]: 2 of 6 OK created sql table model PROD.dim_location ............................ [[32mSUCCESS 1[0m in 2.02s]
+[0m16:40:15.074302 [info ] [Thread-4 (]: 3 of 6 OK created sql table model PROD.dim_menu ................................ [[32mSUCCESS 1[0m in 2.02s]
+[0m16:40:15.075289 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.dim_truck
+[0m16:40:15.076178 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.dim_location
+[0m16:40:15.077014 [debug] [Thread-4 (]: Finished running node model.tasty_bytes.dim_menu
+[0m16:40:15.078278 [debug] [Thread-5 (]: Began running node model.tasty_bytes.fct_daily_sales
+[0m16:40:15.079747 [debug] [Thread-3 (]: Began running node model.tasty_bytes.fct_order_summary
+[0m16:40:15.081229 [info ] [Thread-5 (]: 5 of 6 START sql table model PROD.fct_daily_sales .............................. [RUN]
+[0m16:40:15.082141 [info ] [Thread-3 (]: 6 of 6 START sql table model PROD.fct_order_summary ............................ [RUN]
+[0m16:40:15.082913 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_truck, now model.tasty_bytes.fct_daily_sales)
+[0m16:40:15.083585 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.tasty_bytes.dim_location, now model.tasty_bytes.fct_order_summary)
+[0m16:40:15.084189 [debug] [Thread-5 (]: Began compiling node model.tasty_bytes.fct_daily_sales
+[0m16:40:15.084769 [debug] [Thread-3 (]: Began compiling node model.tasty_bytes.fct_order_summary
+[0m16:40:15.096785 [debug] [Thread-5 (]: Writing injected SQL for node "model.tasty_bytes.fct_daily_sales"
+[0m16:40:15.110489 [debug] [Thread-3 (]: Writing injected SQL for node "model.tasty_bytes.fct_order_summary"
+[0m16:40:15.111616 [debug] [Thread-5 (]: Began executing node model.tasty_bytes.fct_daily_sales
+[0m16:40:15.123469 [debug] [Thread-3 (]: Began executing node model.tasty_bytes.fct_order_summary
+[0m16:40:15.123908 [debug] [Thread-5 (]: Writing runtime sql for node "model.tasty_bytes.fct_daily_sales"
+[0m16:40:15.136442 [debug] [Thread-3 (]: Writing runtime sql for node "model.tasty_bytes.fct_order_summary"
+[0m16:40:15.138910 [debug] [Thread-5 (]: Using snowflake connection "model.tasty_bytes.fct_daily_sales"
+[0m16:40:15.139733 [debug] [Thread-5 (]: On model.tasty_bytes.fct_daily_sales: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.fct_daily_sales"} */
+create or replace transient table LARSR_DB.PROD.fct_daily_sales
+         as
+        (select
+    o.order_date,
+    o.truck_id,
+    o.location_id,
+    count(distinct o.order_id) as order_count,
+    count(distinct o.customer_id) as unique_customers,
+    sum(od.quantity) as items_sold,
+    sum(od.price) as total_revenue,
+    sum(od.line_cogs) as total_cogs,
+    sum(od.line_gross_profit) as total_gross_profit,
+    avg(o.order_total) as avg_order_value
+from LARSR_DB.PROD.stg_orders o
+inner join LARSR_DB.PROD.int_order_details_enriched od
+    on o.order_id = od.order_id
+group by
+    o.order_date,
+    o.truck_id,
+    o.location_id
+        );
+[0m16:40:15.141788 [debug] [Thread-3 (]: Using snowflake connection "model.tasty_bytes.fct_order_summary"
+[0m16:40:15.142408 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m16:40:15.143228 [debug] [Thread-3 (]: On model.tasty_bytes.fct_order_summary: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.fct_order_summary"} */
+create or replace transient table LARSR_DB.PROD.fct_order_summary
+         as
+        (select
+    o.order_id,
+    o.truck_id,
+    o.location_id,
+    o.customer_id,
+    o.order_date,
+    o.order_ts,
+    o.order_channel,
+    o.order_currency,
+    o.order_amount,
+    o.order_tax_amount,
+    o.order_discount_amount,
+    o.order_total,
+    count(od.order_detail_id) as item_count,
+    sum(od.quantity) as total_quantity,
+    sum(od.line_cogs) as total_cogs,
+    sum(od.line_gross_profit) as total_gross_profit
+from LARSR_DB.PROD.stg_orders o
+inner join LARSR_DB.PROD.int_order_details_enriched od
+    on o.order_id = od.order_id
+group by
+    o.order_id,
+    o.truck_id,
+    o.location_id,
+    o.customer_id,
+    o.order_date,
+    o.order_ts,
+    o.order_channel,
+    o.order_currency,
+    o.order_amount,
+    o.order_tax_amount,
+    o.order_discount_amount,
+    o.order_total
+        );
+[0m16:40:15.144151 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:40:16.132634 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 2.919 seconds
+[0m16:40:16.136745 [info ] [Thread-2 (]: 1 of 6 OK created sql table model PROD.dim_customer ............................ [[32mSUCCESS 1[0m in 3.09s]
+[0m16:40:16.137745 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.dim_customer
+[0m16:45:35.624841 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 320.479 seconds
+[0m16:45:35.635926 [info ] [Thread-5 (]: 5 of 6 OK created sql table model PROD.fct_daily_sales ......................... [[32mSUCCESS 1[0m in 320.55s]
+[0m16:45:35.637566 [debug] [Thread-5 (]: Finished running node model.tasty_bytes.fct_daily_sales
+[0m16:46:11.756873 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 356.613 seconds
+[0m16:46:11.760886 [info ] [Thread-3 (]: 6 of 6 OK created sql table model PROD.fct_order_summary ....................... [[32mSUCCESS 1[0m in 356.68s]
+[0m16:46:11.761967 [debug] [Thread-3 (]: Finished running node model.tasty_bytes.fct_order_summary
+[0m16:46:11.767073 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:46:11.768150 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.dim_customer' was properly closed.
+[0m16:46:11.769064 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_order_summary' was properly closed.
+[0m16:46:11.769804 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.dim_menu' was properly closed.
+[0m16:46:11.770443 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.fct_daily_sales' was properly closed.
+[0m16:46:11.771375 [info ] [Dummy-1   ]: 
+[0m16:46:11.772192 [info ] [Dummy-1   ]: Finished running 6 table models in 0 hours 6 minutes and 0.84 seconds (360.84s).
+[0m16:46:11.774245 [debug] [Dummy-1   ]: Command end result
+[0m16:46:11.983900 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:46:11.987016 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:46:11.995800 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:46:11.996615 [info ] [Dummy-1   ]: 
+[0m16:46:11.997545 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:46:11.998293 [info ] [Dummy-1   ]: 
+[0m16:46:11.999204 [info ] [Dummy-1   ]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m16:46:12.046315 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 362.29877, "process_in_blocks": "0", "process_kernel_time": 1.23, "process_mem_max_rss": "460524", "process_out_blocks": "0", "process_user_time": 8.79}
+[0m16:46:12.047218 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:46:12.046878 after 362.30 seconds
+[0m16:46:12.047968 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 16:48:00.979397 | 23d8400a-49e9-4c2e-8ac5-ff5766fe7700 ==============================
+[0m16:48:00.979397 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m16:48:00.980402 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/tmp/dbt/logs', 'profiles_dir': '/tmp/dbt/', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt ', 'log_format': 'default', 'introspect': 'True', 'target_path': '/tmp/dbt/target/', 'static_parser': 'True', 'send_anonymous_usage_stats': 'False'}
+[0m16:48:01.051391 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m16:48:01.353942 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m16:48:01.413205 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m16:48:01.789457 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:48:01.790166 [debug] [Dummy-1   ]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:48:01.967558 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:48:01.970365 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:48:02.025228 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m16:48:02.027908 [info ] [Dummy-1   ]: 
+[0m16:48:02.028720 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m16:48:02.029325 [info ] [Dummy-1   ]: 
+[0m16:48:02.030209 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m16:48:02.032238 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m16:48:02.146798 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m16:48:02.147454 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m16:48:02.147950 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:48:02.785937 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.638 seconds
+[0m16:48:02.796511 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m16:48:02.819011 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:48:02.819651 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m16:48:02.820166 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:48:03.516971 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.697 seconds
+[0m16:48:03.522713 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:48:03.523277 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m16:48:03.687896 [debug] [ThreadPool]: SQL status: SUCCESS 16 in 0.164 seconds
+[0m16:48:03.691030 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m16:48:03.691583 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m16:48:03.813849 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.122 seconds
+[0m16:48:03.828167 [debug] [Thread-2 (]: Began running node model.tasty_bytes.sem_sales_analytics
+[0m16:48:03.829367 [info ] [Thread-2 (]: 1 of 1 START sql semantic_view model PROD.sem_sales_analytics .................. [RUN]
+[0m16:48:03.830161 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.sem_sales_analytics)
+[0m16:48:03.830774 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.sem_sales_analytics
+[0m16:48:03.851387 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.sem_sales_analytics"
+[0m16:48:03.852319 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.sem_sales_analytics
+[0m16:48:03.881593 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.sem_sales_analytics"
+[0m16:48:03.887561 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.sem_sales_analytics"
+[0m16:48:03.888816 [debug] [Thread-2 (]: On model.tasty_bytes.sem_sales_analytics: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.sem_sales_analytics"} */
+create or replace semantic view LARSR_DB.PROD.sem_sales_analytics
+  
+
+TABLES (
+    daily_sales AS LARSR_DB.PROD.fct_daily_sales PRIMARY KEY (order_date, truck_id, location_id),
+    orders AS LARSR_DB.PROD.fct_order_summary PRIMARY KEY (order_id),
+    trucks AS LARSR_DB.PROD.dim_truck PRIMARY KEY (truck_id),
+    locations AS LARSR_DB.PROD.dim_location PRIMARY KEY (location_id),
+    menu AS LARSR_DB.PROD.dim_menu PRIMARY KEY (menu_item_id),
+    customers AS LARSR_DB.PROD.dim_customer PRIMARY KEY (customer_id)
+)
+
+RELATIONSHIPS (
+    daily_sales_to_trucks AS daily_sales(truck_id) REFERENCES trucks(truck_id),
+    daily_sales_to_locations AS daily_sales(location_id) REFERENCES locations(location_id),
+    orders_to_trucks AS orders(truck_id) REFERENCES trucks(truck_id),
+    orders_to_locations AS orders(location_id) REFERENCES locations(location_id),
+    orders_to_customers AS orders(customer_id) REFERENCES customers(customer_id)
+)
+
+DIMENSIONS (
+    daily_sales.order_date AS daily_sales.order_date
+        WITH SYNONYMS = ('date', 'sale date', 'day'),
+    trucks.truck_id AS trucks.truck_id,
+    trucks.primary_city AS trucks.primary_city
+        WITH SYNONYMS = ('truck city', 'home city'),
+    trucks.region AS trucks.region
+        WITH SYNONYMS = ('truck region'),
+    trucks.country AS trucks.country
+        WITH SYNONYMS = ('truck country'),
+    trucks.make AS trucks.make
+        WITH SYNONYMS = ('truck make', 'manufacturer'),
+    trucks.model AS trucks.model
+        WITH SYNONYMS = ('truck model'),
+    trucks.ev_flag AS trucks.ev_flag
+        WITH SYNONYMS = ('electric vehicle', 'is ev'),
+    trucks.franchise_flag AS trucks.franchise_flag
+        WITH SYNONYMS = ('is franchise'),
+    trucks.franchise_owner AS trucks.franchise_owner,
+    locations.location_name AS locations.location_name
+        WITH SYNONYMS = ('venue', 'place'),
+    locations.city AS locations.city
+        WITH SYNONYMS = ('location city'),
+    locations.region AS locations.region
+        WITH SYNONYMS = ('location region'),
+    locations.country AS locations.country
+        WITH SYNONYMS = ('location country'),
+    orders.order_date AS orders.order_date
+        WITH SYNONYMS = ('order date'),
+    orders.order_channel AS orders.order_channel
+        WITH SYNONYMS = ('channel', 'sales channel'),
+    orders.order_currency AS orders.order_currency
+        WITH SYNONYMS = ('currency'),
+    customers.city AS customers.city
+        WITH SYNONYMS = ('customer city'),
+    customers.country AS customers.country
+        WITH SYNONYMS = ('customer country'),
+    customers.gender AS customers.gender,
+    customers.favourite_brand AS customers.favourite_brand
+        WITH SYNONYMS = ('preferred brand', 'favorite brand'),
+    customers.marital_status AS customers.marital_status
+)
+
+METRICS (
+    daily_sales.total_revenue AS SUM(daily_sales.total_revenue)
+        WITH SYNONYMS = ('total sales', 'gross revenue', 'revenue'),
+    daily_sales.total_cogs AS SUM(daily_sales.total_cogs)
+        WITH SYNONYMS = ('cost of goods sold', 'cogs'),
+    daily_sales.total_gross_profit AS SUM(daily_sales.total_gross_profit)
+        WITH SYNONYMS = ('gross profit', 'profit'),
+    daily_sales.total_orders AS SUM(daily_sales.order_count)
+        WITH SYNONYMS = ('number of orders', 'order count'),
+    daily_sales.total_items_sold AS SUM(daily_sales.items_sold)
+        WITH SYNONYMS = ('quantity sold', 'units sold'),
+    daily_sales.total_unique_customers AS SUM(daily_sales.unique_customers)
+        WITH SYNONYMS = ('customer count'),
+    daily_sales.average_order_value AS AVG(daily_sales.avg_order_value)
+        WITH SYNONYMS = ('aov', 'avg order value'),
+    orders.order_total_revenue AS SUM(orders.order_total)
+        WITH SYNONYMS = ('order revenue'),
+    orders.order_gross_profit AS SUM(orders.total_gross_profit)
+        WITH SYNONYMS = ('order profit'),
+    orders.avg_items_per_order AS AVG(orders.total_quantity)
+        WITH SYNONYMS = ('basket size', 'items per order')
+)
+
+COMMENT = 'Tasty Bytes food truck analytics: sales performance, truck operations, customer behavior, and menu analysis.'
+
+AI_SQL_GENERATION 'Focus on daily_sales for trend analysis and aggregated KPIs. Use orders for order-level detail. Revenue is in USD. Date range is 2019-01-01 to 2022-11-01.'
+[0m16:48:03.889742 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:48:06.571819 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 2.682 seconds
+[0m16:48:06.585247 [info ] [Thread-2 (]: 1 of 1 OK created sql semantic_view model PROD.sem_sales_analytics ............. [[32mSUCCESS 1[0m in 2.75s]
+[0m16:48:06.586234 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.sem_sales_analytics
+[0m16:48:06.589901 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m16:48:06.590466 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.sem_sales_analytics' was properly closed.
+[0m16:48:06.591103 [info ] [Dummy-1   ]: 
+[0m16:48:06.591744 [info ] [Dummy-1   ]: Finished running 1 semantic view model in 0 hours 0 minutes and 4.56 seconds (4.56s).
+[0m16:48:06.592746 [debug] [Dummy-1   ]: Command end result
+[0m16:48:06.630794 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m16:48:06.633201 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m16:48:06.640975 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m16:48:06.641613 [info ] [Dummy-1   ]: 
+[0m16:48:06.642425 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m16:48:06.643020 [info ] [Dummy-1   ]: 
+[0m16:48:06.643650 [info ] [Dummy-1   ]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m16:48:06.645473 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 5.7624497, "process_in_blocks": "0", "process_kernel_time": 1.05, "process_mem_max_rss": "448140", "process_out_blocks": "0", "process_user_time": 5.23}
+[0m16:48:06.646164 [debug] [Dummy-1   ]: Command `cli run` succeeded at 16:48:06.645892 after 5.76 seconds
+[0m16:48:06.646718 [debug] [Dummy-1   ]: Flushing usage events
+
+
+============================== 17:19:45.454040 | 22dfd217-dd38-47b6-9a78-609aece5d8a8 ==============================
+[0m17:19:45.454040 [info ] [Dummy-1   ]: Running with dbt=1.9.4
+[0m17:19:45.455116 [debug] [Dummy-1   ]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/tmp/dbt/', 'log_path': '/tmp/dbt/logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt ', 'target_path': '/tmp/dbt/target/', 'log_format': 'default', 'send_anonymous_usage_stats': 'False'}
+[0m17:19:45.528323 [error] [Dummy-1   ]:  adapter: Invalid profile: 'user' is a required property.
+[0m17:19:45.840118 [info ] [Dummy-1   ]: Registered adapter: snowflake=1.9.2
+[0m17:19:45.902998 [debug] [Dummy-1   ]: checksum: 53ed91fada2233efb98368d1716b44ab532c83a9c293cf1890b7905d5b45fb25, vars: {}, profile: , target: dev, version: 1.9.4
+[0m17:19:46.285045 [debug] [Dummy-1   ]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m17:19:46.286139 [debug] [Dummy-1   ]: Partial parsing: updated file: tasty_bytes://models/semantic/sem_sales_analytics.sql
+[0m17:19:47.055795 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m17:19:47.058710 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m17:19:47.116982 [info ] [Dummy-1   ]: Found 17 models, 8 sources, 480 macros
+[0m17:19:47.119946 [info ] [Dummy-1   ]: 
+[0m17:19:47.120677 [info ] [Dummy-1   ]: Concurrency: 4 threads (target='dev')
+[0m17:19:47.121273 [info ] [Dummy-1   ]: 
+[0m17:19:47.122113 [debug] [Dummy-1   ]: Acquiring new snowflake connection 'master'
+[0m17:19:47.124219 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_LARSR_DB'
+[0m17:19:47.235631 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB"
+[0m17:19:47.236287 [debug] [ThreadPool]: On list_LARSR_DB: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB"} */
+show terse schemas in database LARSR_DB
+    limit 10000
+[0m17:19:47.236793 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:19:47.877176 [debug] [ThreadPool]: SQL status: SUCCESS 9 in 0.640 seconds
+[0m17:19:47.888171 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_LARSR_DB, now list_LARSR_DB_PROD)
+[0m17:19:47.910932 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m17:19:47.911603 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session set quoted_identifiers_ignore_case = false;
+[0m17:19:47.912107 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:19:48.499348 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.587 seconds
+[0m17:19:48.505205 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m17:19:48.505842 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+show objects in LARSR_DB.PROD
+    limit 10000
+    
+;
+[0m17:19:48.697039 [debug] [ThreadPool]: SQL status: SUCCESS 17 in 0.190 seconds
+[0m17:19:48.700443 [debug] [ThreadPool]: Using snowflake connection "list_LARSR_DB_PROD"
+[0m17:19:48.701047 [debug] [ThreadPool]: On list_LARSR_DB_PROD: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "connection_name": "list_LARSR_DB_PROD"} */
+alter session unset quoted_identifiers_ignore_case;
+[0m17:19:48.890790 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.189 seconds
+[0m17:19:48.906114 [debug] [Thread-2 (]: Began running node model.tasty_bytes.sem_sales_analytics
+[0m17:19:48.907344 [info ] [Thread-2 (]: 1 of 1 START sql semantic_view model PROD.sem_sales_analytics .................. [RUN]
+[0m17:19:48.908239 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_LARSR_DB_PROD, now model.tasty_bytes.sem_sales_analytics)
+[0m17:19:48.909019 [debug] [Thread-2 (]: Began compiling node model.tasty_bytes.sem_sales_analytics
+[0m17:19:48.930473 [debug] [Thread-2 (]: Writing injected SQL for node "model.tasty_bytes.sem_sales_analytics"
+[0m17:19:48.931544 [debug] [Thread-2 (]: Began executing node model.tasty_bytes.sem_sales_analytics
+[0m17:19:49.109757 [debug] [Thread-2 (]: Writing runtime sql for node "model.tasty_bytes.sem_sales_analytics"
+[0m17:19:49.116947 [debug] [Thread-2 (]: Using snowflake connection "model.tasty_bytes.sem_sales_analytics"
+[0m17:19:49.118769 [debug] [Thread-2 (]: On model.tasty_bytes.sem_sales_analytics: /* {"app": "dbt", "dbt_version": "1.9.4", "profile_name": "tasty_bytes", "target_name": "dev", "node_id": "model.tasty_bytes.sem_sales_analytics"} */
+create or replace semantic view LARSR_DB.PROD.sem_sales_analytics
+  
+
+TABLES (
+    daily_sales AS LARSR_DB.PROD.fct_daily_sales PRIMARY KEY (order_date, truck_id, location_id)
+        COMMENT = 'Pre-aggregated daily sales by truck and location. Use this table for ALL revenue, profit, order count, and trend questions.',
+    trucks AS LARSR_DB.PROD.dim_truck PRIMARY KEY (truck_id)
+        COMMENT = 'Food truck dimension with make, model, franchise info.',
+    locations AS LARSR_DB.PROD.dim_location PRIMARY KEY (location_id)
+        COMMENT = 'Location dimension with city, region, country.',
+    menu AS LARSR_DB.PROD.dim_menu PRIMARY KEY (menu_item_id)
+        COMMENT = 'Menu item dimension with categories and pricing.',
+    customers AS LARSR_DB.PROD.dim_customer PRIMARY KEY (customer_id)
+        COMMENT = 'Customer loyalty dimension with demographics.'
+)
+
+RELATIONSHIPS (
+    daily_sales_to_trucks AS daily_sales(truck_id) REFERENCES trucks(truck_id),
+    daily_sales_to_locations AS daily_sales(location_id) REFERENCES locations(location_id)
+)
+
+DIMENSIONS (
+    daily_sales.order_date AS daily_sales.order_date
+        WITH SYNONYMS = ('date', 'sale date', 'day')
+        COMMENT = 'Date of sales activity. Data spans 2019-01-01 to 2022-11-01.',
+    trucks.truck_id AS trucks.truck_id
+        COMMENT = 'Unique truck identifier.',
+    trucks.primary_city AS trucks.primary_city
+        WITH SYNONYMS = ('truck city', 'home city')
+        COMMENT = 'Home city where the truck is based.',
+    trucks.region AS trucks.region
+        WITH SYNONYMS = ('truck region', 'region')
+        COMMENT = 'Geographic region of the truck.',
+    trucks.country AS trucks.country
+        WITH SYNONYMS = ('truck country', 'country')
+        COMMENT = 'Country where the truck operates.',
+    trucks.make AS trucks.make
+        WITH SYNONYMS = ('truck make', 'manufacturer')
+        COMMENT = 'Vehicle manufacturer.',
+    trucks.model AS trucks.model
+        WITH SYNONYMS = ('truck model')
+        COMMENT = 'Vehicle model.',
+    trucks.ev_flag AS trucks.ev_flag
+        WITH SYNONYMS = ('electric vehicle', 'is ev')
+        COMMENT = '1 if electric vehicle, 0 otherwise.',
+    trucks.franchise_flag AS trucks.franchise_flag
+        WITH SYNONYMS = ('is franchise')
+        COMMENT = '1 if franchise-operated, 0 if company-owned.',
+    trucks.franchise_owner AS trucks.franchise_owner
+        COMMENT = 'Name of franchise owner, if applicable.',
+    locations.location_name AS locations.location_name
+        WITH SYNONYMS = ('venue', 'place')
+        COMMENT = 'Name of the selling location.',
+    locations.city AS locations.city
+        WITH SYNONYMS = ('location city')
+        COMMENT = 'City of the selling location.',
+    locations.region AS locations.region
+        WITH SYNONYMS = ('location region')
+        COMMENT = 'Region of the selling location.',
+    locations.country AS locations.country
+        WITH SYNONYMS = ('location country')
+        COMMENT = 'Country of the selling location.'
+)
+
+METRICS (
+    daily_sales.total_revenue AS SUM(daily_sales.total_revenue)
+        WITH SYNONYMS = ('total sales', 'gross revenue', 'revenue', 'sales')
+        COMMENT = 'Total revenue in USD. This is the primary revenue metric for all questions about revenue, sales, or income.',
+    daily_sales.total_cogs AS SUM(daily_sales.total_cogs)
+        WITH SYNONYMS = ('cost of goods sold', 'cogs', 'cost')
+        COMMENT = 'Total cost of goods sold in USD.',
+    daily_sales.total_gross_profit AS SUM(daily_sales.total_gross_profit)
+        WITH SYNONYMS = ('gross profit', 'profit', 'margin dollars')
+        COMMENT = 'Total gross profit in USD (revenue minus COGS).',
+    daily_sales.total_orders AS SUM(daily_sales.order_count)
+        WITH SYNONYMS = ('number of orders', 'order count', 'orders')
+        COMMENT = 'Total number of distinct orders.',
+    daily_sales.total_items_sold AS SUM(daily_sales.items_sold)
+        WITH SYNONYMS = ('quantity sold', 'units sold', 'items sold')
+        COMMENT = 'Total quantity of menu items sold.',
+    daily_sales.total_unique_customers AS SUM(daily_sales.unique_customers)
+        WITH SYNONYMS = ('customer count', 'unique customers')
+        COMMENT = 'Count of distinct customers. Excludes anonymous orders.',
+    daily_sales.average_order_value AS AVG(daily_sales.avg_order_value)
+        WITH SYNONYMS = ('aov', 'avg order value', 'average order value')
+        COMMENT = 'Average order value in USD.',
+    gross_profit_margin AS daily_sales.total_gross_profit / NULLIF(daily_sales.total_revenue, 0)
+        WITH SYNONYMS = ('margin', 'gp margin', 'profit margin', 'gross margin')
+        COMMENT = 'Gross profit margin as a ratio (multiply by 100 for percentage).'
+)
+
+COMMENT = 'Tasty Bytes food truck sales analytics. All revenue, profit, and order metrics come from the daily_sales table which is pre-aggregated by day, truck, and location. Data covers 2019-01-01 to 2022-11-01. All monetary values are in USD.'
+
+AI_SQL_GENERATION 'ALWAYS use the daily_sales table for revenue, profit, orders, and all aggregate KPI questions. There is only one revenue metric: daily_sales.total_revenue. Join to trucks for truck attributes (make, model, region, franchise). Join to locations for location attributes (city, region, country). All monetary values are in USD. Date range is 2019-01-01 to 2022-11-01. When asked about top trucks by revenue, use: SELECT trucks.truck_id, trucks.primary_city, trucks.country, SUM(daily_sales.total_revenue) AS total_revenue FROM daily_sales JOIN trucks ON daily_sales.truck_id = trucks.truck_id GROUP BY 1,2,3 ORDER BY total_revenue DESC.'
+
+AI_VERIFIED_QUERIES (
+    top_5_trucks_by_revenue AS (
+        QUESTION 'What are the top 5 trucks by revenue?'
+        VERIFIED_AT 1747267200
+        ONBOARDING_QUESTION TRUE
+        VERIFIED_BY '(STEWARD = LARSR)'
+        SQL 'SELECT t.truck_id, t.primary_city, t.country, t.make, t.model, SUM(ds.total_revenue) AS total_revenue, SUM(ds.total_gross_profit) AS total_gross_profit, SUM(ds.order_count) AS total_orders FROM LARSR_DB.PROD.FCT_DAILY_SALES ds JOIN LARSR_DB.PROD.DIM_TRUCK t ON ds.truck_id = t.truck_id GROUP BY t.truck_id, t.primary_city, t.country, t.make, t.model ORDER BY total_revenue DESC LIMIT 5'
+    ),
+    yearly_revenue_trend AS (
+        QUESTION 'What is the annual revenue trend year over year?'
+        VERIFIED_AT 1747267200
+        ONBOARDING_QUESTION TRUE
+        VERIFIED_BY '(STEWARD = LARSR)'
+        SQL 'SELECT DATE_TRUNC(''YEAR'', ds.order_date) AS year, SUM(ds.total_revenue) AS total_revenue, SUM(ds.total_gross_profit) AS total_gross_profit, SUM(ds.total_gross_profit) / NULLIF(SUM(ds.total_revenue), 0) AS gross_profit_margin, SUM(ds.order_count) AS total_orders FROM LARSR_DB.PROD.FCT_DAILY_SALES ds GROUP BY DATE_TRUNC(''YEAR'', ds.order_date) ORDER BY year'
+    ),
+    revenue_by_region AS (
+        QUESTION 'What is the total revenue by region?'
+        VERIFIED_AT 1747267200
+        ONBOARDING_QUESTION TRUE
+        VERIFIED_BY '(STEWARD = LARSR)'
+        SQL 'SELECT l.region, SUM(ds.total_revenue) AS total_revenue, SUM(ds.total_gross_profit) AS total_gross_profit, SUM(ds.order_count) AS total_orders FROM LARSR_DB.PROD.FCT_DAILY_SALES ds JOIN LARSR_DB.PROD.DIM_LOCATION l ON ds.location_id = l.location_id GROUP BY l.region ORDER BY total_revenue DESC'
+    ),
+    revenue_by_country AS (
+        QUESTION 'What is the total revenue by country?'
+        VERIFIED_AT 1747267200
+        ONBOARDING_QUESTION FALSE
+        VERIFIED_BY '(STEWARD = LARSR)'
+        SQL 'SELECT l.country, SUM(ds.total_revenue) AS total_revenue, SUM(ds.total_gross_profit) AS total_gross_profit, SUM(ds.order_count) AS total_orders FROM LARSR_DB.PROD.FCT_DAILY_SALES ds JOIN LARSR_DB.PROD.DIM_LOCATION l ON ds.location_id = l.location_id GROUP BY l.country ORDER BY total_revenue DESC'
+    ),
+    daily_revenue AS (
+        QUESTION 'What is the daily revenue?'
+        VERIFIED_AT 1747267200
+        ONBOARDING_QUESTION FALSE
+        VERIFIED_BY '(STEWARD = LARSR)'
+        SQL 'SELECT ds.order_date, SUM(ds.total_revenue) AS total_revenue, SUM(ds.order_count) AS total_orders FROM LARSR_DB.PROD.FCT_DAILY_SALES ds GROUP BY ds.order_date ORDER BY ds.order_date'
+    )
+)
+[0m17:19:49.120065 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m17:19:51.095052 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.975 seconds
+[0m17:19:51.109406 [info ] [Thread-2 (]: 1 of 1 OK created sql semantic_view model PROD.sem_sales_analytics ............. [[32mSUCCESS 1[0m in 2.20s]
+[0m17:19:51.110455 [debug] [Thread-2 (]: Finished running node model.tasty_bytes.sem_sales_analytics
+[0m17:19:51.114180 [debug] [Dummy-1   ]: Connection 'master' was properly closed.
+[0m17:19:51.114769 [debug] [Dummy-1   ]: Connection 'model.tasty_bytes.sem_sales_analytics' was properly closed.
+[0m17:19:51.115468 [info ] [Dummy-1   ]: 
+[0m17:19:51.116145 [info ] [Dummy-1   ]: Finished running 1 semantic view model in 0 hours 0 minutes and 3.99 seconds (3.99s).
+[0m17:19:51.117170 [debug] [Dummy-1   ]: Command end result
+[0m17:19:51.156975 [debug] [Dummy-1   ]: Wrote artifact WritableManifest to /tmp/dbt/target/manifest.json
+[0m17:19:51.159967 [debug] [Dummy-1   ]: Wrote artifact SemanticManifest to /tmp/dbt/target/semantic_manifest.json
+[0m17:19:51.167910 [debug] [Dummy-1   ]: Wrote artifact RunExecutionResult to /tmp/dbt/target/run_results.json
+[0m17:19:51.168711 [info ] [Dummy-1   ]: 
+[0m17:19:51.169609 [info ] [Dummy-1   ]: [32mCompleted successfully[0m
+[0m17:19:51.170254 [info ] [Dummy-1   ]: 
+[0m17:19:51.170923 [info ] [Dummy-1   ]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m17:19:51.172895 [debug] [Dummy-1   ]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 5.819481, "process_in_blocks": "0", "process_kernel_time": 1.12, "process_mem_max_rss": "501588", "process_out_blocks": "0", "process_user_time": 5.96}
+[0m17:19:51.173612 [debug] [Dummy-1   ]: Command `cli run` succeeded at 17:19:51.173333 after 5.82 seconds
+[0m17:19:51.174174 [debug] [Dummy-1   ]: Flushing usage events

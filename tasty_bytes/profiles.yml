@@ -1,0 +1,12 @@
+tasty_bytes:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: ""
+      user: ""
+      role: LARSR_ROLE
+      database: LARSR_DB
+      warehouse: LARSR_WH
+      schema: PROD
+      threads: 4

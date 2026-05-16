@@ -1,0 +1,137 @@
+---
+title: "Tasty Bytes Sales Analytics - Metric Definitions Sign-off"
+version: "1.0"
+date: "2026-05-14"
+semantic_view: "LARSR_DB.PROD.SEM_SALES_ANALYTICS"
+status: "PENDING APPROVAL"
+---
+
+metrics:
+
+  - name: total_revenue
+    definition: "Sum of daily total revenue across all order line items"
+    formula: "SUM(fct_daily_sales.total_revenue)"
+    unit: USD
+    grain: "daily / truck / location"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_DETAIL (price)
+      - LARSR_DB.RAW.MENU (sale_price_usd)
+    notes: "Revenue = SUM(order_detail.price). Includes all order channels."
+    approved_by: ""
+    approved_date: ""
+
+  - name: total_cogs
+    definition: "Sum of cost of goods sold based on menu item unit costs and quantities"
+    formula: "SUM(fct_daily_sales.total_cogs)"
+    unit: USD
+    grain: "daily / truck / location"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_DETAIL (quantity)
+      - LARSR_DB.RAW.MENU (cost_of_goods_usd)
+    notes: "COGS = SUM(order_detail.quantity * menu.cost_of_goods_usd)"
+    approved_by: ""
+    approved_date: ""
+
+  - name: total_gross_profit
+    definition: "Revenue minus cost of goods sold"
+    formula: "SUM(fct_daily_sales.total_gross_profit)"
+    unit: USD
+    grain: "daily / truck / location"
+    source_tables:
+      - Derived from total_revenue and total_cogs
+    notes: "gross_profit = price - (quantity * cost_of_goods_usd) per line item"
+    approved_by: ""
+    approved_date: ""
+
+  - name: total_orders
+    definition: "Count of distinct orders"
+    formula: "SUM(fct_daily_sales.order_count)"
+    unit: count
+    grain: "daily / truck / location"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_HEADER (order_id)
+    notes: "COUNT(DISTINCT order_id) pre-aggregated per day/truck/location"
+    approved_by: ""
+    approved_date: ""
+
+  - name: total_items_sold
+    definition: "Total quantity of items sold across all order lines"
+    formula: "SUM(fct_daily_sales.items_sold)"
+    unit: count
+    grain: "daily / truck / location"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_DETAIL (quantity)
+    notes: "SUM(quantity) from order detail lines"
+    approved_by: ""
+    approved_date: ""
+
+  - name: total_unique_customers
+    definition: "Count of distinct customers who placed orders"
+    formula: "SUM(fct_daily_sales.unique_customers)"
+    unit: count
+    grain: "daily / truck / location"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_HEADER (customer_id)
+    notes: "COUNT(DISTINCT customer_id). NULLs excluded (anonymous orders)."
+    approved_by: ""
+    approved_date: ""
+
+  - name: average_order_value
+    definition: "Average order total amount"
+    formula: "AVG(fct_daily_sales.avg_order_value)"
+    unit: USD
+    grain: "daily / truck / location"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_HEADER (order_total)
+    notes: "Pre-aggregated AVG(order_total) per day/truck/location grain"
+    approved_by: ""
+    approved_date: ""
+
+  - name: order_total_revenue
+    definition: "Sum of order totals from order-level fact"
+    formula: "SUM(fct_order_summary.order_total)"
+    unit: USD
+    grain: "per order"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_HEADER (order_total)
+    notes: "Enables order-level analysis. Use for per-order drill-downs."
+    approved_by: ""
+    approved_date: ""
+
+  - name: order_gross_profit
+    definition: "Gross profit at order level"
+    formula: "SUM(fct_order_summary.total_gross_profit)"
+    unit: USD
+    grain: "per order"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_DETAIL (price, quantity)
+      - LARSR_DB.RAW.MENU (cost_of_goods_usd)
+    notes: "SUM(line_gross_profit) per order"
+    approved_by: ""
+    approved_date: ""
+
+  - name: avg_items_per_order
+    definition: "Average number of items (quantity) per order"
+    formula: "AVG(fct_order_summary.total_quantity)"
+    unit: count
+    grain: "per order"
+    source_tables:
+      - LARSR_DB.RAW.ORDER_DETAIL (quantity)
+    notes: "Basket size indicator. Average ~2.7 items/order in raw data."
+    approved_by: ""
+    approved_date: ""
+
+---
+sign_off:
+  - role: "Data Engineer"
+    name: ""
+    signature: ""
+    date: ""
+  - role: "Business Analyst"
+    name: ""
+    signature: ""
+    date: ""
+  - role: "Data Owner / Stakeholder"
+    name: ""
+    signature: ""
+    date: ""

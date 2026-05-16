@@ -1,0 +1,20 @@
+name: 'tasty_bytes'
+version: '1.0.0'
+config-version: 2
+profile: 'tasty_bytes'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+
+models:
+  tasty_bytes:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: dynamic_table
+      +snowflake_warehouse: LARSR_WH
+      +target_lag: '1 hour'
+    marts:
+      +materialized: table
+    semantic:
+      +materialized: semantic_view

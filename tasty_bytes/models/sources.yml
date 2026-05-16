@@ -1,0 +1,124 @@
+version: 2
+
+sources:
+  - name: raw
+    database: LARSR_DB
+    schema: RAW
+    tables:
+      - name: order_header
+        description: "Order headers with 248M rows. PK: ORDER_ID (unique)."
+        columns:
+          - name: ORDER_ID
+          - name: TRUCK_ID
+          - name: LOCATION_ID
+          - name: CUSTOMER_ID
+          - name: DISCOUNT_ID
+          - name: SHIFT_ID
+          - name: SHIFT_START_TIME
+          - name: SHIFT_END_TIME
+          - name: ORDER_CHANNEL
+          - name: ORDER_TS
+          - name: SERVED_TS
+          - name: ORDER_CURRENCY
+          - name: ORDER_AMOUNT
+          - name: ORDER_TAX_AMOUNT
+          - name: ORDER_DISCOUNT_AMOUNT
+          - name: ORDER_TOTAL
+
+      - name: order_detail
+        description: "Order line items with 674M rows (~2.7 lines/order). PK: ORDER_DETAIL_ID (unique)."
+        columns:
+          - name: ORDER_DETAIL_ID
+          - name: ORDER_ID
+          - name: MENU_ITEM_ID
+          - name: DISCOUNT_ID
+          - name: LINE_NUMBER
+          - name: QUANTITY
+          - name: UNIT_PRICE
+          - name: PRICE
+          - name: ORDER_ITEM_DISCOUNT_AMOUNT
+
+      - name: truck
+        description: "Food trucks. 450 rows. PK: TRUCK_ID (unique)."
+        columns:
+          - name: TRUCK_ID
+          - name: MENU_TYPE_ID
+          - name: PRIMARY_CITY
+          - name: REGION
+          - name: ISO_REGION
+          - name: COUNTRY
+          - name: ISO_COUNTRY_CODE
+          - name: FRANCHISE_FLAG
+          - name: YEAR
+          - name: MAKE
+          - name: MODEL
+          - name: EV_FLAG
+          - name: FRANCHISE_ID
+          - name: TRUCK_OPENING_DATE
+
+      - name: menu
+        description: "Menu items. 100 rows. PK: MENU_ID (unique). MENU_ITEM_ID also unique."
+        columns:
+          - name: MENU_ID
+          - name: MENU_TYPE_ID
+          - name: MENU_TYPE
+          - name: TRUCK_BRAND_NAME
+          - name: MENU_ITEM_ID
+          - name: MENU_ITEM_NAME
+          - name: ITEM_CATEGORY
+          - name: ITEM_SUBCATEGORY
+          - name: COST_OF_GOODS_USD
+          - name: SALE_PRICE_USD
+          - name: MENU_ITEM_HEALTH_METRICS_OBJ
+
+      - name: location
+        description: "Locations. 13K rows. PK: LOCATION_ID (unique)."
+        columns:
+          - name: LOCATION_ID
+          - name: PLACEKEY
+          - name: LOCATION
+          - name: CITY
+          - name: REGION
+          - name: ISO_COUNTRY_CODE
+          - name: COUNTRY
+
+      - name: customer_loyalty
+        description: "Customer loyalty profiles. 223K rows. PK: CUSTOMER_ID (unique)."
+        columns:
+          - name: CUSTOMER_ID
+          - name: FIRST_NAME
+          - name: LAST_NAME
+          - name: CITY
+          - name: COUNTRY
+          - name: POSTAL_CODE
+          - name: PREFERRED_LANGUAGE
+          - name: GENDER
+          - name: FAVOURITE_BRAND
+          - name: MARITAL_STATUS
+          - name: CHILDREN_COUNT
+          - name: SIGN_UP_DATE
+          - name: BIRTHDAY_DATE
+          - name: E_MAIL
+          - name: PHONE_NUMBER
+
+      - name: franchise
+        description: "Franchise owners. 335 rows. FRANCHISE_ID has duplicates - needs dedup."
+        columns:
+          - name: FRANCHISE_ID
+          - name: FIRST_NAME
+          - name: LAST_NAME
+          - name: CITY
+          - name: COUNTRY
+          - name: E_MAIL
+          - name: PHONE_NUMBER
+
+      - name: country
+        description: "Country/city reference. 30 rows. PK: CITY_ID (unique). COUNTRY_ID is not unique (2 cities/country)."
+        columns:
+          - name: COUNTRY_ID
+          - name: COUNTRY
+          - name: ISO_CURRENCY
+          - name: ISO_COUNTRY
+          - name: CITY_ID
+          - name: CITY
+          - name: CITY_POPULATION
