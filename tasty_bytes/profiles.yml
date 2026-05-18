@@ -8,5 +8,14 @@ tasty_bytes:
       role: LARSR_ROLE
       database: LARSR_DB
       warehouse: LARSR_WH
-      schema: PROD
+      schema: DEV_LARSR_TASTY_BYTES
+      threads: 4
+    prod:
+      type: snowflake
+      account: ""
+      user: ""
+      role: LARSR_ROLE
+      database: LARSR_DB
+      warehouse: LARSR_WH
+      schema: PROD_TASTY_BYTES
       threads: 4

@@ -1,15 +1,15 @@
 
 
 TABLES (
-    daily_sales AS LARSR_DB.PROD.fct_daily_sales PRIMARY KEY (order_date, truck_id, location_id)
+    daily_sales AS LARSR_DB.DEV_LARSR_TASTY_BYTES.fct_daily_sales PRIMARY KEY (order_date, truck_id, location_id)
         COMMENT = 'Pre-aggregated daily sales by truck and location. Use this table for ALL revenue, profit, order count, and trend questions.',
-    trucks AS LARSR_DB.PROD.dim_truck PRIMARY KEY (truck_id)
+    trucks AS LARSR_DB.DEV_LARSR_TASTY_BYTES.dim_truck PRIMARY KEY (truck_id)
         COMMENT = 'Food truck dimension with make, model, franchise info.',
-    locations AS LARSR_DB.PROD.dim_location PRIMARY KEY (location_id)
+    locations AS LARSR_DB.DEV_LARSR_TASTY_BYTES.dim_location PRIMARY KEY (location_id)
         COMMENT = 'Location dimension with city, region, country.',
-    menu AS LARSR_DB.PROD.dim_menu PRIMARY KEY (menu_item_id)
+    menu AS LARSR_DB.DEV_LARSR_TASTY_BYTES.dim_menu PRIMARY KEY (menu_item_id)
         COMMENT = 'Menu item dimension with categories and pricing.',
-    customers AS LARSR_DB.PROD.dim_customer PRIMARY KEY (customer_id)
+    customers AS LARSR_DB.DEV_LARSR_TASTY_BYTES.dim_customer PRIMARY KEY (customer_id)
         COMMENT = 'Customer loyalty dimension with demographics.'
 )
 

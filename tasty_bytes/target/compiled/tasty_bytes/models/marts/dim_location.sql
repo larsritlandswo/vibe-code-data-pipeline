@@ -6,4 +6,4 @@ select
     region,
     iso_country_code,
     country
-from LARSR_DB.PROD.stg_locations
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_locations

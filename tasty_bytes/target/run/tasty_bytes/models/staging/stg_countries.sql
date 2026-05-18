@@ -1,5 +1,5 @@
 
-  create or replace   view LARSR_DB.PROD.stg_countries
+  create or replace   view LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_countries
   
    as (
     select

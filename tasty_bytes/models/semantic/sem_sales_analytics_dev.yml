@@ -1,6 +1,6 @@
 name: SEM_SALES_ANALYTICS
 description: >
-  Tasty Bytes food truck sales analytics. All revenue, profit, and order metrics
+  [DEV] Tasty Bytes food truck sales analytics. All revenue, profit, and order metrics
   come from the daily_sales table pre-aggregated by day, truck, and location.
   Data covers 2019-01-01 to 2022-11-01. All monetary values are in USD.
 
@@ -11,7 +11,7 @@ tables:
       Use this table for ALL revenue, profit, order count, and trend questions.
     base_table:
       database: LARSR_DB
-      schema: PROD_TASTY_BYTES
+      schema: DEV_LARSR_TASTY_BYTES
       table: FCT_DAILY_SALES
     primary_key:
       columns:
@@ -71,7 +71,7 @@ tables:
     description: Food truck dimension with make, model, franchise info.
     base_table:
       database: LARSR_DB
-      schema: PROD_TASTY_BYTES
+      schema: DEV_LARSR_TASTY_BYTES
       table: DIM_TRUCK
     primary_key:
       columns: [TRUCK_ID]
@@ -121,7 +121,7 @@ tables:
     description: Location dimension with city, region, country.
     base_table:
       database: LARSR_DB
-      schema: PROD_TASTY_BYTES
+      schema: DEV_LARSR_TASTY_BYTES
       table: DIM_LOCATION
     primary_key:
       columns: [LOCATION_ID]
@@ -151,7 +151,7 @@ tables:
     description: Customer loyalty dimension with demographics.
     base_table:
       database: LARSR_DB
-      schema: PROD_TASTY_BYTES
+      schema: DEV_LARSR_TASTY_BYTES
       table: DIM_CUSTOMER
     primary_key:
       columns: [CUSTOMER_ID]
@@ -204,8 +204,8 @@ verified_queries:
              SUM(ds.total_revenue) AS total_revenue,
              SUM(ds.total_gross_profit) AS total_gross_profit,
              SUM(ds.order_count) AS total_orders
-      FROM LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES ds
-      JOIN LARSR_DB.PROD_TASTY_BYTES.DIM_TRUCK t ON ds.truck_id = t.truck_id
+      FROM LARSR_DB.DEV_LARSR_TASTY_BYTES.FCT_DAILY_SALES ds
+      JOIN LARSR_DB.DEV_LARSR_TASTY_BYTES.DIM_TRUCK t ON ds.truck_id = t.truck_id
       GROUP BY t.truck_id, t.primary_city, t.country, t.make, t.model
       ORDER BY total_revenue DESC LIMIT 5
   - name: yearly_revenue_trend
@@ -219,7 +219,7 @@ verified_queries:
              SUM(ds.total_gross_profit) AS total_gross_profit,
              SUM(ds.total_gross_profit) / NULLIF(SUM(ds.total_revenue), 0) AS gross_profit_margin,
              SUM(ds.order_count) AS total_orders
-      FROM LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES ds
+      FROM LARSR_DB.DEV_LARSR_TASTY_BYTES.FCT_DAILY_SALES ds
       GROUP BY DATE_TRUNC('YEAR', ds.order_date)
       ORDER BY year
   - name: revenue_by_region
@@ -231,6 +231,6 @@ verified_queries:
       SELECT l.region, SUM(ds.total_revenue) AS total_revenue,
              SUM(ds.total_gross_profit) AS total_gross_profit,
              SUM(ds.order_count) AS total_orders
-      FROM LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES ds
-      JOIN LARSR_DB.PROD_TASTY_BYTES.DIM_LOCATION l ON ds.location_id = l.location_id
+      FROM LARSR_DB.DEV_LARSR_TASTY_BYTES.FCT_DAILY_SALES ds
+      JOIN LARSR_DB.DEV_LARSR_TASTY_BYTES.DIM_LOCATION l ON ds.location_id = l.location_id
       GROUP BY l.region ORDER BY total_revenue DESC

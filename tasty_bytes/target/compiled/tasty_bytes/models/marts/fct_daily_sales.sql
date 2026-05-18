@@ -9,8 +9,8 @@ select
     sum(od.line_cogs) as total_cogs,
     sum(od.line_gross_profit) as total_gross_profit,
     avg(o.order_total) as avg_order_value
-from LARSR_DB.PROD.stg_orders o
-inner join LARSR_DB.PROD.int_order_details_enriched od
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_orders o
+inner join LARSR_DB.DEV_LARSR_TASTY_BYTES.int_order_details_enriched od
     on o.order_id = od.order_id
 group by
     o.order_date,

@@ -16,6 +16,6 @@ select
     m.sale_price_usd,
     od.quantity * m.cost_of_goods_usd as line_cogs,
     od.price - (od.quantity * m.cost_of_goods_usd) as line_gross_profit
-from LARSR_DB.PROD.stg_order_details od
-inner join LARSR_DB.PROD.stg_menu m
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_order_details od
+inner join LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_menu m
     on od.menu_item_id = m.menu_item_id

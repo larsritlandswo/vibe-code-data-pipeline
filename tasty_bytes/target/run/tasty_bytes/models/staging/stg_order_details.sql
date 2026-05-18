@@ -1,5 +1,5 @@
 
-  create or replace   view LARSR_DB.PROD.stg_order_details
+  create or replace   view LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_order_details
   
    as (
     select

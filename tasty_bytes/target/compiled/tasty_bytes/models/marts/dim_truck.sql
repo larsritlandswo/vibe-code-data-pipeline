@@ -15,4 +15,4 @@ select
     franchise_owner,
     franchise_city,
     franchise_country
-from LARSR_DB.PROD.int_trucks_enriched
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.int_trucks_enriched

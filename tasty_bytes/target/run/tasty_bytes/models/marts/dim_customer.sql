@@ -2,7 +2,7 @@
   
     
 
-        create or replace transient table LARSR_DB.PROD.dim_customer
+        create or replace transient table LARSR_DB.DEV_LARSR_TASTY_BYTES.dim_customer
          as
         (select
     customer_id,
@@ -18,7 +18,7 @@
     children_count,
     sign_up_date,
     birthday_date
-from LARSR_DB.PROD.stg_customers
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_customers
         );
       
   

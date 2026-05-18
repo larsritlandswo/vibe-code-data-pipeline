@@ -10,4 +10,4 @@ select
     cost_of_goods_usd,
     sale_price_usd,
     sale_price_usd - cost_of_goods_usd as unit_margin_usd
-from LARSR_DB.PROD.stg_menu
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_menu

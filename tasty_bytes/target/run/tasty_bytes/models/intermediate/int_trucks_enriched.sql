@@ -2,7 +2,7 @@
         
 
     
-        create dynamic table LARSR_DB.PROD.int_trucks_enriched
+        create dynamic table LARSR_DB.DEV_LARSR_TASTY_BYTES.int_trucks_enriched
         target_lag = '1 hour'
         warehouse = LARSR_WH
         refresh_mode = AUTO
@@ -27,8 +27,8 @@
     f.first_name || ' ' || f.last_name as franchise_owner,
     f.city as franchise_city,
     f.country as franchise_country
-from LARSR_DB.PROD.stg_trucks t
-left join LARSR_DB.PROD.stg_franchises f
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_trucks t
+left join LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_franchises f
     on t.franchise_id = f.franchise_id
         )
 

@@ -12,4 +12,4 @@ select
     children_count,
     sign_up_date,
     birthday_date
-from LARSR_DB.PROD.stg_customers
+from LARSR_DB.DEV_LARSR_TASTY_BYTES.stg_customers
