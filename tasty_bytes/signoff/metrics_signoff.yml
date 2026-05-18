@@ -1,123 +1,106 @@
 ---
 title: "Tasty Bytes Sales Analytics - Metric Definitions Sign-off"
-version: "1.0"
-date: "2026-05-14"
-semantic_view: "LARSR_DB.PROD.SEM_SALES_ANALYTICS"
+version: "2.0"
+date: "2026-05-18"
+semantic_view: "LARSR_DB.PROD_TASTY_BYTES.SEM_SALES_ANALYTICS"
 status: "PENDING APPROVAL"
 ---
 
 metrics:
 
   - name: total_revenue
-    definition: "Sum of daily total revenue across all order line items"
-    formula: "SUM(fct_daily_sales.total_revenue)"
+    synonyms: [total sales, gross revenue, revenue, sales]
+    definition: "Total revenue in USD. Primary revenue metric."
+    formula: "SUM(TOTAL_REVENUE)"
     unit: USD
     grain: "daily / truck / location"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_DETAIL (price)
-      - LARSR_DB.RAW.MENU (sale_price_usd)
-    notes: "Revenue = SUM(order_detail.price). Includes all order channels."
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [TOTAL_REVENUE]
+    notes: "Revenue = SUM(order_detail.price) pre-aggregated per day/truck/location. Includes all order channels."
     approved_by: ""
     approved_date: ""
 
   - name: total_cogs
-    definition: "Sum of cost of goods sold based on menu item unit costs and quantities"
-    formula: "SUM(fct_daily_sales.total_cogs)"
+    synonyms: [cost of goods sold, cogs, cost]
+    definition: "Total cost of goods sold in USD."
+    formula: "SUM(TOTAL_COGS)"
     unit: USD
     grain: "daily / truck / location"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_DETAIL (quantity)
-      - LARSR_DB.RAW.MENU (cost_of_goods_usd)
-    notes: "COGS = SUM(order_detail.quantity * menu.cost_of_goods_usd)"
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [TOTAL_COGS]
+    notes: "COGS = SUM(order_detail.quantity * menu.cost_of_goods_usd) pre-aggregated."
     approved_by: ""
     approved_date: ""
 
   - name: total_gross_profit
-    definition: "Revenue minus cost of goods sold"
-    formula: "SUM(fct_daily_sales.total_gross_profit)"
+    synonyms: [gross profit, profit, margin dollars]
+    definition: "Total gross profit in USD (revenue minus COGS)."
+    formula: "SUM(TOTAL_GROSS_PROFIT)"
     unit: USD
     grain: "daily / truck / location"
-    source_tables:
-      - Derived from total_revenue and total_cogs
-    notes: "gross_profit = price - (quantity * cost_of_goods_usd) per line item"
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [TOTAL_GROSS_PROFIT]
+    notes: "gross_profit = price - (quantity * cost_of_goods_usd) per line item, pre-aggregated."
     approved_by: ""
     approved_date: ""
 
   - name: total_orders
-    definition: "Count of distinct orders"
-    formula: "SUM(fct_daily_sales.order_count)"
+    synonyms: [number of orders, order count, orders]
+    definition: "Total number of distinct orders."
+    formula: "SUM(ORDER_COUNT)"
     unit: count
     grain: "daily / truck / location"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_HEADER (order_id)
-    notes: "COUNT(DISTINCT order_id) pre-aggregated per day/truck/location"
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [ORDER_COUNT]
+    notes: "COUNT(DISTINCT order_id) pre-aggregated per day/truck/location."
     approved_by: ""
     approved_date: ""
 
   - name: total_items_sold
-    definition: "Total quantity of items sold across all order lines"
-    formula: "SUM(fct_daily_sales.items_sold)"
+    synonyms: [quantity sold, units sold, items sold]
+    definition: "Total quantity of menu items sold."
+    formula: "SUM(ITEMS_SOLD)"
     unit: count
     grain: "daily / truck / location"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_DETAIL (quantity)
-    notes: "SUM(quantity) from order detail lines"
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [ITEMS_SOLD]
+    notes: "SUM(quantity) from order detail lines, pre-aggregated."
     approved_by: ""
     approved_date: ""
 
   - name: total_unique_customers
-    definition: "Count of distinct customers who placed orders"
-    formula: "SUM(fct_daily_sales.unique_customers)"
+    synonyms: [customer count, unique customers]
+    definition: "Count of distinct customers. Excludes anonymous orders."
+    formula: "SUM(UNIQUE_CUSTOMERS)"
     unit: count
     grain: "daily / truck / location"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_HEADER (customer_id)
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [UNIQUE_CUSTOMERS]
     notes: "COUNT(DISTINCT customer_id). NULLs excluded (anonymous orders)."
     approved_by: ""
     approved_date: ""
 
   - name: average_order_value
-    definition: "Average order total amount"
-    formula: "AVG(fct_daily_sales.avg_order_value)"
+    synonyms: [aov, avg order value, average order value]
+    definition: "Average order value in USD."
+    formula: "AVG(AVG_ORDER_VALUE)"
     unit: USD
     grain: "daily / truck / location"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_HEADER (order_total)
-    notes: "Pre-aggregated AVG(order_total) per day/truck/location grain"
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [AVG_ORDER_VALUE]
+    notes: "Pre-aggregated AVG(order_total) per day/truck/location grain."
     approved_by: ""
     approved_date: ""
 
-  - name: order_total_revenue
-    definition: "Sum of order totals from order-level fact"
-    formula: "SUM(fct_order_summary.order_total)"
-    unit: USD
-    grain: "per order"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_HEADER (order_total)
-    notes: "Enables order-level analysis. Use for per-order drill-downs."
-    approved_by: ""
-    approved_date: ""
-
-  - name: order_gross_profit
-    definition: "Gross profit at order level"
-    formula: "SUM(fct_order_summary.total_gross_profit)"
-    unit: USD
-    grain: "per order"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_DETAIL (price, quantity)
-      - LARSR_DB.RAW.MENU (cost_of_goods_usd)
-    notes: "SUM(line_gross_profit) per order"
-    approved_by: ""
-    approved_date: ""
-
-  - name: avg_items_per_order
-    definition: "Average number of items (quantity) per order"
-    formula: "AVG(fct_order_summary.total_quantity)"
-    unit: count
-    grain: "per order"
-    source_tables:
-      - LARSR_DB.RAW.ORDER_DETAIL (quantity)
-    notes: "Basket size indicator. Average ~2.7 items/order in raw data."
+  - name: gross_profit_margin
+    synonyms: [margin, gp margin, profit margin, gross margin]
+    definition: "Gross profit margin as a ratio (multiply by 100 for percentage)."
+    formula: "SUM(TOTAL_GROSS_PROFIT) / NULLIF(SUM(TOTAL_REVENUE), 0)"
+    unit: ratio
+    grain: "daily / truck / location"
+    source_table: LARSR_DB.PROD_TASTY_BYTES.FCT_DAILY_SALES
+    source_columns: [TOTAL_GROSS_PROFIT, TOTAL_REVENUE]
+    notes: "Derived metric. Divide by total_revenue with null-safe division."
     approved_by: ""
     approved_date: ""
 
